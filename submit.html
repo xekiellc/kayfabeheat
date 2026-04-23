@@ -115,7 +115,6 @@ body {
 .kf-nav a.hot { background: #E8174A55; color: var(--yellow); }
 .kf-nav a:hover { background: #1A000044; color: var(--yellow); }
 
-/* PAGE HERO */
 .kf-page-hero {
   background: #1A000088;
   border-bottom: 5px solid var(--black);
@@ -142,7 +141,6 @@ body {
   line-height: 1.5;
 }
 
-/* BODY */
 .kf-body {
   display: grid;
   grid-template-columns: 1fr 240px;
@@ -206,7 +204,7 @@ body {
 }
 
 .kf-input::placeholder { color: #1A000044; }
-.kf-input:focus { background: #F7E020aa; border-color: var(--black); }
+.kf-input:focus { background: #F7E020aa; }
 
 .kf-select {
   width: 100%;
@@ -223,23 +221,6 @@ body {
 }
 
 .kf-select:focus { background: #F7E020aa; }
-
-.kf-textarea {
-  width: 100%;
-  background: #F7E02055;
-  border: 3px solid var(--black);
-  padding: 8px 10px;
-  font-family: 'Special Elite', cursive;
-  font-size: 14px;
-  color: var(--black);
-  outline: none;
-  border-radius: 0;
-  resize: vertical;
-  min-height: 80px;
-}
-
-.kf-textarea::placeholder { color: #1A000044; }
-.kf-textarea:focus { background: #F7E020aa; }
 
 .kf-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
@@ -288,33 +269,54 @@ body {
   line-height: 1.5;
 }
 
-/* SUCCESS MESSAGE */
-.kf-success {
+/* HONEYPOT - hide from humans, catches bots */
+.kf-honeypot { display: none; }
+
+/* SUCCESS PAGE */
+.kf-success-page {
   display: none;
-  background: var(--black);
-  border: 4px solid var(--yellow);
-  padding: 24px;
+  padding: 40px 20px;
   text-align: center;
-  margin-top: 16px;
+  background: #1A000022;
+  border-right: var(--border);
 }
 
 .kf-success-hed {
   font-family: 'Passion One', sans-serif;
-  font-size: 36px;
-  color: var(--yellow);
+  font-size: 52px;
+  color: var(--black);
   letter-spacing: 2px;
-  margin-bottom: 8px;
+  text-shadow: 3px 3px 0 #F7E02088;
+  margin-bottom: 12px;
+  line-height: 1;
 }
 
 .kf-success-sub {
   font-family: 'Special Elite', cursive;
-  font-size: 14px;
-  color: #F7E020aa;
-  line-height: 1.5;
+  font-size: 15px;
+  color: #1A0000cc;
+  line-height: 1.6;
+  max-width: 420px;
+  margin: 0 auto 20px;
 }
 
+.kf-success-btn {
+  display: inline-block;
+  background: var(--black);
+  color: var(--yellow);
+  font-family: 'Russo One', sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  padding: 10px 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 3px solid var(--black);
+}
+
+.kf-success-btn:hover { background: var(--red); }
+
 /* SIDEBAR */
-.kf-sidebar { background: #1A000022; padding: 0; }
+.kf-sidebar { background: #1A000022; }
 
 .kf-sb-block {
   border-bottom: 4px solid var(--black);
@@ -358,7 +360,6 @@ body {
   font-size: 14px;
   color: var(--black);
   margin-bottom: 3px;
-  letter-spacing: 0.5px;
 }
 
 .kf-tier-desc {
@@ -377,7 +378,6 @@ body {
   color: var(--black);
   margin-bottom: 3px;
   line-height: 1.2;
-  letter-spacing: 0.3px;
 }
 
 .kf-faq-a {
@@ -387,7 +387,6 @@ body {
   line-height: 1.4;
 }
 
-/* DIRECTORY PREVIEW */
 .kf-directory {
   border-bottom: 5px solid var(--black);
   padding: 16px 20px;
@@ -465,7 +464,6 @@ body {
   line-height: 1.4;
 }
 
-/* FOOTER */
 .kf-footer {
   background: var(--black);
   border-top: 5px solid var(--yellow);
@@ -517,16 +515,30 @@ body {
 
   <div class="kf-body">
 
-    <div class="kf-form-wrap">
+    <!-- FORM -->
+    <div class="kf-form-wrap" id="form-wrap">
       <div class="kf-form-head">Promotion Info</div>
 
-      <form id="submit-form" onsubmit="handleSubmit(event)">
+      <form
+        name="promotion-submission"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        action="/submit-success.html"
+      >
+        <!-- Netlify required hidden input -->
+        <input type="hidden" name="form-name" value="promotion-submission" />
+
+        <!-- Honeypot — bots fill this, humans don't see it -->
+        <div class="kf-honeypot">
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </div>
 
         <div class="kf-form-section">
           <div class="kf-form-section-head">Basic Details</div>
           <div class="kf-field">
             <label class="kf-label">Promotion Name <span>*</span></label>
-            <input class="kf-input" type="text" name="name" placeholder="e.g. Ohio Championship Wrestling" required />
+            <input class="kf-input" type="text" name="promotion-name" placeholder="e.g. Ohio Championship Wrestling" required />
           </div>
           <div class="kf-field-row">
             <div class="kf-field">
@@ -583,7 +595,7 @@ body {
           <div class="kf-field-row">
             <div class="kf-field">
               <label class="kf-label">Show Date</label>
-              <input class="kf-input" type="text" name="show_date" placeholder="May 10, 2026" />
+              <input class="kf-input" type="text" name="show-date" placeholder="May 10, 2026" />
             </div>
             <div class="kf-field">
               <label class="kf-label">Venue</label>
@@ -592,7 +604,7 @@ body {
           </div>
           <div class="kf-field">
             <label class="kf-label">Tickets URL</label>
-            <input class="kf-input" type="url" name="tickets" placeholder="https://tickets.yourpromotion.com" />
+            <input class="kf-input" type="url" name="tickets-url" placeholder="https://tickets.yourpromotion.com" />
           </div>
         </div>
 
@@ -605,12 +617,12 @@ body {
           <div class="kf-field">
             <label class="kf-label">Style of Wrestling</label>
             <div class="kf-checkboxes">
-              <label class="kf-check-item"><input type="checkbox" name="style" value="Traditional" /> Traditional / Old School</label>
-              <label class="kf-check-item"><input type="checkbox" name="style" value="Lucha" /> Lucha / High Fly</label>
-              <label class="kf-check-item"><input type="checkbox" name="style" value="Hardcore" /> Hardcore / Deathmatch</label>
-              <label class="kf-check-item"><input type="checkbox" name="style" value="Sports Entertainment" /> Sports Entertainment</label>
-              <label class="kf-check-item"><input type="checkbox" name="style" value="Technical" /> Technical / Strong Style</label>
-              <label class="kf-check-item"><input type="checkbox" name="style" value="Mixed" /> Mixed / All Styles</label>
+              <label class="kf-check-item"><input type="checkbox" name="style-traditional" value="Traditional" /> Traditional / Old School</label>
+              <label class="kf-check-item"><input type="checkbox" name="style-lucha" value="Lucha" /> Lucha / High Fly</label>
+              <label class="kf-check-item"><input type="checkbox" name="style-hardcore" value="Hardcore" /> Hardcore / Deathmatch</label>
+              <label class="kf-check-item"><input type="checkbox" name="style-sports-ent" value="Sports Entertainment" /> Sports Entertainment</label>
+              <label class="kf-check-item"><input type="checkbox" name="style-technical" value="Technical" /> Technical / Strong Style</label>
+              <label class="kf-check-item"><input type="checkbox" name="style-mixed" value="Mixed" /> Mixed / All Styles</label>
             </div>
           </div>
         </div>
@@ -619,11 +631,11 @@ body {
           <div class="kf-form-section-head">Contact</div>
           <div class="kf-field">
             <label class="kf-label">Your Name <span>*</span></label>
-            <input class="kf-input" type="text" name="contact_name" placeholder="Promoter / Contact Name" required />
+            <input class="kf-input" type="text" name="contact-name" placeholder="Promoter / Contact Name" required />
           </div>
           <div class="kf-field">
             <label class="kf-label">Email <span>*</span></label>
-            <input class="kf-input" type="email" name="contact_email" placeholder="you@yourpromotion.com" required />
+            <input class="kf-input" type="email" name="contact-email" placeholder="you@yourpromotion.com" required />
           </div>
         </div>
 
@@ -631,11 +643,6 @@ body {
         <div class="kf-fine-print">Free to list. No pay-to-play. We review all submissions within 48 hours.<br>Spam or fake promotions get permanently banned.</div>
 
       </form>
-
-      <div class="kf-success" id="success-msg">
-        <div class="kf-success-hed">You're In The Ring!</div>
-        <div class="kf-success-sub">Your submission has been received. We'll review it within 48 hours and add you to the directory. Watch your email for confirmation.</div>
-      </div>
     </div>
 
     <div class="kf-sidebar">
@@ -678,7 +685,7 @@ body {
         </div>
         <div class="kf-faq-item">
           <div class="kf-faq-q">Questions?</div>
-          <div class="kf-faq-a">Email us at info@kayfabeheat.com and we'll get back to you fast.</div>
+          <div class="kf-faq-a">Email info@kayfabeheat.com and we'll get back to you fast.</div>
         </div>
       </div>
     </div>
@@ -763,55 +770,5 @@ body {
   </div>
 
 </div>
-
-<script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    const form = document.getElementById('submit-form');
-    const data = new FormData(form);
-    const styles = [];
-    data.getAll('style').forEach(s => styles.push(s));
-    const payload = {
-      name: data.get('name'),
-      city: data.get('city'),
-      state: data.get('state'),
-      region: data.get('region'),
-      website: data.get('website'),
-      twitter: data.get('twitter'),
-      instagram: data.get('instagram'),
-      facebook: data.get('facebook'),
-      show_date: data.get('show_date'),
-      venue: data.get('venue'),
-      tickets: data.get('tickets'),
-      description: data.get('description'),
-      styles: styles.join(', '),
-      contact_name: data.get('contact_name'),
-      contact_email: data.get('contact_email'),
-      submitted_at: new Date().toISOString()
-    };
-    const mailto = `mailto:info@kayfabeheat.com?subject=Promotion Submission: ${encodeURIComponent(payload.name)}&body=${encodeURIComponent(
-      `PROMOTION SUBMISSION\n\n` +
-      `Name: ${payload.name}\n` +
-      `Location: ${payload.city}, ${payload.state}\n` +
-      `Region: ${payload.region}\n` +
-      `Website: ${payload.website}\n` +
-      `Twitter: ${payload.twitter}\n` +
-      `Instagram: ${payload.instagram}\n` +
-      `Facebook: ${payload.facebook}\n` +
-      `Next Show: ${payload.show_date} at ${payload.venue}\n` +
-      `Tickets: ${payload.tickets}\n` +
-      `Description: ${payload.description}\n` +
-      `Styles: ${payload.styles}\n` +
-      `Contact: ${payload.contact_name} — ${payload.contact_email}\n` +
-      `Submitted: ${payload.submitted_at}`
-    )}`;
-    window.location.href = mailto;
-    setTimeout(() => {
-      form.style.display = 'none';
-      document.getElementById('success-msg').style.display = 'block';
-    }, 1000);
-  }
-</script>
-
 </body>
 </html>
