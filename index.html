@@ -54,7 +54,6 @@ body {
   );
 }
 
-/* MASTHEAD */
 .kf-masthead { padding: 10px 8px 6px; text-align: center; }
 
 .kf-title {
@@ -89,7 +88,6 @@ body {
 .kf-divline { height: 5px; background: var(--black); margin: 6px 0; }
 .kf-divline-thin { height: 2px; background: #1A000044; margin: 4px 0; }
 
-/* NAV */
 .kf-nav {
   display: flex;
   flex-wrap: wrap;
@@ -118,7 +116,6 @@ body {
 .kf-nav a.hot { background: #E8174A55; color: var(--yellow); }
 .kf-nav a:hover { background: #1A000044; color: var(--yellow); }
 
-/* TICKER */
 .kf-ticker {
   background: var(--black);
   border-bottom: 3px solid var(--yellow);
@@ -160,7 +157,6 @@ body {
 
 .kf-ticker-item strong { color: var(--yellow); }
 
-/* HERO */
 .kf-hero {
   background: #1A000088;
   border-bottom: 5px solid var(--black);
@@ -250,7 +246,6 @@ body {
   display: block;
 }
 
-/* 3-COL */
 .kf-3col {
   display: grid;
   grid-template-columns: 160px 1fr 178px;
@@ -319,7 +314,6 @@ body {
   flex-shrink: 0;
 }
 
-/* CENTER FEED */
 .kf-center { padding: 12px; }
 
 .kf-card {
@@ -395,7 +389,6 @@ body {
   text-transform: uppercase;
 }
 
-/* FILTER BAR */
 .kf-filter-bar {
   display: none;
   background: #1A000033;
@@ -432,7 +425,6 @@ body {
 .kf-filter-btn.active { background: var(--yellow); color: var(--black); }
 .kf-filter-btn:hover { background: var(--yellow); color: var(--black); }
 
-/* NO RESULTS */
 .kf-no-results {
   display: none;
   padding: 20px;
@@ -442,7 +434,6 @@ body {
   color: var(--black);
 }
 
-/* RIGHT SIDEBAR */
 .kf-poll-item { margin-bottom: 9px; }
 
 .kf-poll-label {
@@ -474,23 +465,6 @@ body {
 
 .kf-take:last-child { border-bottom: none; }
 
-.kf-nl { background: var(--black); padding: 12px; text-align: center; }
-.kf-nl-head { font-family: 'Squada One', cursive; font-size: 20px; color: var(--yellow); margin-bottom: 4px; letter-spacing: 1px; }
-.kf-nl-sub { font-family: 'Special Elite', cursive; font-size: 11px; color: #F7E02077; margin-bottom: 10px; }
-.kf-nl-btn {
-  display: block;
-  background: var(--yellow);
-  color: var(--black);
-  font-family: 'Russo One', sans-serif;
-  font-size: 13px;
-  letter-spacing: 2px;
-  padding: 8px;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.kf-nl-btn:hover { background: var(--pink); color: var(--yellow); }
-
-/* SECTIONS */
 .kf-section { border-bottom: 5px solid var(--black); padding: 16px 18px; }
 .kf-section-dark { background: #1A000044; }
 .kf-section-light { background: #1A000022; }
@@ -507,7 +481,6 @@ body {
 
 .kf-section-head-light { color: var(--yellow); border-color: var(--yellow); }
 
-/* MAJOR PROMOS */
 .kf-promo-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
 
 .kf-promo-card {
@@ -516,16 +489,14 @@ body {
   padding: 12px 8px;
   text-align: center;
   cursor: pointer;
-  transition: background 0.2s;
 }
 
 .kf-promo-card:hover { background: #3A0000; }
 
 .kf-promo-name { font-family: 'Passion One', sans-serif; font-size: 24px; color: var(--yellow); letter-spacing: 1px; line-height: 1; margin-bottom: 4px; }
 .kf-promo-sub { font-family: 'Special Elite', cursive; font-size: 9px; color: #F7E02066; display: block; margin-bottom: 6px; }
-.kf-promo-desc { font-family: 'Squada One', cursive; font-size: 11px; color: var(--yellow); display: block; letter-spacing: 0.5px; }
+.kf-promo-desc { font-family: 'Squada One', cursive; font-size: 11px; color: var(--yellow); display: block; }
 
-/* US INDIES */
 .kf-region { margin-bottom: 16px; }
 .kf-region:last-child { margin-bottom: 0; }
 
@@ -563,112 +534,45 @@ body {
   text-decoration: none;
 }
 
-/* GLOBAL */
 .kf-global-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-
 .kf-global-region { background: #1A000055; border: 3px solid var(--black); padding: 11px 13px; }
 .kf-global-region-name { font-family: 'Squada One', cursive; font-size: 20px; color: var(--yellow); border-bottom: 2px solid #F7E02033; padding-bottom: 5px; margin-bottom: 9px; letter-spacing: 1px; }
 .kf-global-promo { font-family: 'Special Elite', cursive; font-size: 12px; color: #F7E020cc; padding: 3px 0; border-bottom: 1px dashed #F7E02022; line-height: 1.35; }
 .kf-global-promo:last-child { border-bottom: none; }
 .kf-global-promo span { font-family: 'Russo One', sans-serif; font-size: 8px; letter-spacing: 1px; color: #F7E02044; display: block; text-transform: uppercase; }
 
-/* VIDEOS */
 .kf-video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-
 .kf-video-card { background: #1A000044; border: 3px solid var(--black); overflow: hidden; }
-
-.kf-video-thumb {
-  background: #0A0000;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  position: relative;
-}
-
-.kf-play {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 16px 0 16px 28px;
-  border-color: transparent transparent transparent var(--yellow);
-}
-
+.kf-video-thumb { background: #0A0000; height: 80px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.kf-play { width: 0; height: 0; border-style: solid; border-width: 16px 0 16px 28px; border-color: transparent transparent transparent var(--yellow); }
 .kf-video-info { padding: 8px 10px; }
 .kf-video-title { font-family: 'Squada One', cursive; font-size: 13px; color: var(--yellow); margin-bottom: 3px; line-height: 1.2; }
 .kf-video-meta { font-family: 'Russo One', sans-serif; font-size: 9px; letter-spacing: 1.5px; color: #F7E02055; text-transform: uppercase; }
 
-/* PODCASTS */
 .kf-podcast-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-
-.kf-podcast-card {
-  background: #1A000044;
-  border: 3px solid var(--black);
-  padding: 12px 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.kf-podcast-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--yellow);
-  border: 2px solid var(--black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-family: 'Passion One', sans-serif;
-  font-size: 20px;
-  color: var(--black);
-}
-
+.kf-podcast-card { background: #1A000044; border: 3px solid var(--black); padding: 12px 14px; display: flex; align-items: center; gap: 12px; }
+.kf-podcast-icon { width: 44px; height: 44px; background: var(--yellow); border: 2px solid var(--black); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Passion One', sans-serif; font-size: 20px; color: var(--black); }
 .kf-podcast-info { flex: 1; }
 .kf-podcast-name { font-family: 'Squada One', cursive; font-size: 14px; color: var(--yellow); margin-bottom: 3px; line-height: 1.2; }
 .kf-podcast-desc { font-family: 'Special Elite', cursive; font-size: 11px; color: #F7E020aa; line-height: 1.3; }
 .kf-podcast-link { font-family: 'Russo One', sans-serif; font-size: 9px; letter-spacing: 1.5px; color: var(--yellow); text-decoration: none; text-transform: uppercase; display: block; margin-top: 5px; }
 
-/* COMMUNITY */
 .kf-community { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 5px solid var(--black); }
 .kf-comm-left { padding: 16px; background: #1A000022; border-right: var(--border); }
 .kf-comm-right { padding: 16px; background: #1A000044; }
-
-.kf-comm-head {
-  font-family: 'Squada One', cursive;
-  font-size: 18px;
-  color: var(--black);
-  border-bottom: 3px solid var(--black);
-  padding-bottom: 5px;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
-}
-
+.kf-comm-head { font-family: 'Squada One', cursive; font-size: 18px; color: var(--black); border-bottom: 3px solid var(--black); padding-bottom: 5px; margin-bottom: 12px; letter-spacing: 1px; }
 .kf-fh-q { font-family: 'Squada One', cursive; font-size: 16px; color: var(--black); margin-bottom: 12px; line-height: 1.2; }
 .kf-fh-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-
-.kf-fh-btn {
-  padding: 10px 6px;
-  font-family: 'Passion One', sans-serif;
-  font-size: 22px;
-  letter-spacing: 1px;
-  text-align: center;
-  border: 3px solid var(--black);
-  cursor: pointer;
-}
-
+.kf-fh-btn { padding: 10px 6px; font-family: 'Passion One', sans-serif; font-size: 22px; letter-spacing: 1px; text-align: center; border: 3px solid var(--black); cursor: pointer; }
 .kf-face { background: var(--yellow); color: var(--black); }
 .kf-heel { background: var(--black); color: var(--yellow); }
 .kf-face:hover { background: var(--black); color: var(--yellow); }
 .kf-heel:hover { background: var(--yellow); color: var(--black); }
-
 .kf-index-item { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #1A000033; }
 .kf-index-item:last-child { border-bottom: none; }
 .kf-index-name { font-family: 'Special Elite', cursive; font-size: 13px; color: var(--black); }
 .kf-index-score { font-family: 'Passion One', sans-serif; font-size: 22px; color: var(--black); line-height: 1; }
 
-/* FOOTER */
 .kf-footer {
   background: var(--black);
   border-top: 5px solid var(--yellow);
@@ -685,26 +589,21 @@ body {
 .kf-footer-links { display: flex; gap: 16px; }
 .kf-footer-links a { font-family: 'Russo One', sans-serif; font-size: 10px; letter-spacing: 2px; color: #F7E02066; text-decoration: none; text-transform: uppercase; }
 .kf-footer-links a:hover { color: var(--yellow); }
-
-/* SECTION VISIBILITY */
-.kf-section-hidden { display: none; }
 </style>
 </head>
 
 <body>
 <div class="kf">
 
-  <!-- MASTHEAD -->
   <div class="kf-masthead">
     <span class="kf-title">KAYFABE HEAT</span>
     <div class="kf-divline"></div>
     <span class="kf-tagline">Work · Shoot · Heat</span>
     <div class="kf-divline-thin"></div>
-    <div class="kf-meta-line" id="last-updated">kayfabeheat.com · Last updated: Thursday, April 23, 2026 at 17:07 UTC</div>
+    <div class="kf-meta-line" id="last-updated">kayfabeheat.com · Last updated: Thursday, April 23, 2026</div>
     <div class="kf-divline" style="margin-top:6px;"></div>
   </div>
 
-  <!-- NAV -->
   <nav class="kf-nav" id="main-nav">
     <a href="#" class="active" data-filter="all">All</a>
     <a href="#" data-filter="Work">Work</a>
@@ -718,40 +617,34 @@ body {
     <a href="submit.html" class="hot">Submit</a>
   </nav>
 
-  <!-- TICKER -->
   <div class="kf-ticker">
     <div class="kf-ticker-label">Breaking</div>
     <div class="kf-ticker-scroll" id="ticker">
-      <span class="kf-ticker-item"><strong>Shoot</strong> — Hulk Hogan Consumed Lethal Amounts of Fentanyl Before 2025 D &nbsp;·&nbsp; </span>
-      <span class="kf-ticker-item"><strong>Work</strong> — Roman Reigns Defeats CM Punk in Bloody WrestleMania 42 Main  &nbsp;·&nbsp; </span>
-      <span class="kf-ticker-item"><strong>Heat</strong> — Kenny Omega Responds to Jade Cargill Stealing His One Winged &nbsp;·&nbsp; </span>
-      <span class="kf-ticker-item"><strong>Work</strong> — Randy Orton Stands Tall Over New Champion Cody Rhodes After  &nbsp;·&nbsp; </span>
-      <span class="kf-ticker-item"><strong>Shoot</strong> — Iron Maiden Drummer's Niece Lizzy Rain Makes WWE NXT Debut &nbsp;·&nbsp; </span>
-      <span class="kf-ticker-item"><strong>Heat</strong> — CJ Perry Watched Husband Rusev Destroy Himself in Brutal Wre &nbsp;·&nbsp; </span>
-      <span class="kf-ticker-item"><strong>Shoot</strong> — Hulk Hogan Consumed Lethal Amounts of Fentanyl Before 2025 D &nbsp;·&nbsp; </span>
-      <span class="kf-ticker-item"><strong>Work</strong> — Roman Reigns Defeats CM Punk in Bloody WrestleMania 42 Main  &nbsp;·&nbsp; </span>
-      <span class="kf-ticker-item"><strong>Heat</strong> — Kenny Omega Responds to Jade Cargill Stealing His One Winged &nbsp;·&nbsp; </span>
-      <span class="kf-ticker-item"><strong>Work</strong> — Randy Orton Stands Tall Over New Champion Cody Rhodes After  &nbsp;·&nbsp; </span>
-      <span class="kf-ticker-item"><strong>Shoot</strong> — Iron Maiden Drummer's Niece Lizzy Rain Makes WWE NXT Debut &nbsp;·&nbsp; </span>
-      <span class="kf-ticker-item"><strong>Heat</strong> — CJ Perry Watched Husband Rusev Destroy Himself in Brutal Wre &nbsp;·&nbsp; </span>
-      
+      <span class="kf-ticker-item"><strong>WWE RAW</strong> — CM Punk turns heel on Cody Rhodes &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>AEW</strong> — Tony Khan confirms All In card &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>NJPW</strong> — Dominion lineup finalized &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>TNA</strong> — Joe Hendry defends at Rebellion &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>GCW</strong> — Nick Gage returns at Jersey show &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>WWE RAW</strong> — CM Punk turns heel on Cody Rhodes &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>AEW</strong> — Tony Khan confirms All In card &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>NJPW</strong> — Dominion lineup finalized &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>TNA</strong> — Joe Hendry defends at Rebellion &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>GCW</strong> — Nick Gage returns at Jersey show &nbsp;·&nbsp; </span>
     </div>
   </div>
 
-  <!-- HERO -->
-  <div class="kf-hero" id="hero-section">
-    <div class="kf-hero-kicker">Top Story · Shoot</div>
-    <div class="kf-hero-hed" id="hero-hed">Hulk Hogan Consumed Lethal Amounts of Fentanyl Before 2025 Death</div>
-    <div class="kf-hero-deck" id="hero-deck">Netflix documentary reveals Hogan took enough fentanyl to kill a horse during his darkest TNA Wrestling period.</div>
+  <div class="kf-hero">
+    <div class="kf-hero-kicker">Top Story · Pro Wrestling</div>
+    <div class="kf-hero-hed" id="hero-hed">Loading today's top story...</div>
+    <div class="kf-hero-deck" id="hero-deck">Check back soon for the latest wrestling news.</div>
     <a href="#" class="kf-hero-cta" id="hero-cta">Read Now →</a>
     <div class="kf-heat-badge">
       <span class="kf-heat-badge-label">Heat Level</span>
-      <span class="kf-heat-badge-num" id="hero-heat">95°</span>
-      <span class="kf-heat-badge-sub" id="hero-heatsub">Scorching</span>
+      <span class="kf-heat-badge-num" id="hero-heat">--°</span>
+      <span class="kf-heat-badge-sub" id="hero-heatsub">Loading</span>
     </div>
   </div>
 
-  <!-- FILTER BAR -->
   <div class="kf-filter-bar" id="filter-bar">
     <span class="kf-filter-label">Filter by promotion:</span>
     <button class="kf-filter-btn active" data-promo="all">All</button>
@@ -764,7 +657,6 @@ body {
     <button class="kf-filter-btn" data-promo="Indies">Indies</button>
   </div>
 
-  <!-- 3-COL -->
   <div class="kf-3col" id="main-feed">
     <div class="kf-col-left">
       <div class="kf-col-block">
@@ -861,23 +753,15 @@ body {
         <div class="kf-poll-item"><div class="kf-poll-label"><span>NXT Titles</span><span>71°</span></div><div class="kf-poll-track"><div class="kf-poll-fill" style="width:71%"></div></div></div>
         <div class="kf-poll-item"><div class="kf-poll-label"><span>Hendry Push</span><span>63°</span></div><div class="kf-poll-track"><div class="kf-poll-fill" style="width:63%"></div></div></div>
       </div>
-      <div class="kf-col-block">
+      <div class="kf-col-block" style="border-bottom:none;">
         <div class="kf-col-head">Hot Takes</div>
         <div class="kf-take">Swerve should have dropped the belt three months ago.</div>
         <div class="kf-take">NJPW is the best wrestling on earth right now. Not close.</div>
         <div class="kf-take">The Hendry situation is creative malpractice.</div>
       </div>
-      <div class="kf-col-block" style="border-bottom:none;padding:0;">
-        <div class="kf-nl">
-          <div class="kf-nl-head">Get The Heat</div>
-          <div class="kf-nl-sub">Daily digest. No fluff.</div>
-          <a href="#" class="kf-nl-btn">Subscribe Free →</a>
-        </div>
-      </div>
     </div>
   </div>
 
-  <!-- MAJOR PROMOS -->
   <div class="kf-section kf-section-dark" id="promos">
     <div class="kf-section-head">Major Promotions</div>
     <div class="kf-promo-grid">
@@ -889,7 +773,6 @@ body {
     </div>
   </div>
 
-  <!-- US INDIES -->
   <div class="kf-section kf-section-light" id="indies">
     <div class="kf-section-head">US Indies</div>
     <div class="kf-region">
@@ -921,7 +804,6 @@ body {
     </div>
   </div>
 
-  <!-- GLOBAL -->
   <div class="kf-section kf-section-dark" id="global">
     <div class="kf-section-head kf-section-head-light">Global Wrestling</div>
     <div class="kf-global-grid">
@@ -955,68 +837,36 @@ body {
     </div>
   </div>
 
-  <!-- VIDEOS -->
   <div class="kf-section kf-section-light" id="videos">
     <div class="kf-section-head">Videos</div>
     <div class="kf-video-grid">
       <div class="kf-video-card">
-        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=WWE+highlights+2026','_blank')">
-          <div class="kf-play"></div>
-        </div>
-        <div class="kf-video-info">
-          <div class="kf-video-title">WWE RAW Highlights This Week</div>
-          <div class="kf-video-meta">WWE · Latest</div>
-        </div>
+        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=WWE+highlights+2026','_blank')"><div class="kf-play"></div></div>
+        <div class="kf-video-info"><div class="kf-video-title">WWE RAW Highlights This Week</div><div class="kf-video-meta">WWE · Latest</div></div>
       </div>
       <div class="kf-video-card">
-        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=AEW+Dynamite+highlights+2026','_blank')">
-          <div class="kf-play"></div>
-        </div>
-        <div class="kf-video-info">
-          <div class="kf-video-title">AEW Dynamite Best Moments</div>
-          <div class="kf-video-meta">AEW · Latest</div>
-        </div>
+        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=AEW+Dynamite+highlights+2026','_blank')"><div class="kf-play"></div></div>
+        <div class="kf-video-info"><div class="kf-video-title">AEW Dynamite Best Moments</div><div class="kf-video-meta">AEW · Latest</div></div>
       </div>
       <div class="kf-video-card">
-        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=indie+wrestling+2026','_blank')">
-          <div class="kf-play"></div>
-        </div>
-        <div class="kf-video-info">
-          <div class="kf-video-title">Best Indie Matches This Month</div>
-          <div class="kf-video-meta">Indies · Latest</div>
-        </div>
+        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=indie+wrestling+2026','_blank')"><div class="kf-play"></div></div>
+        <div class="kf-video-info"><div class="kf-video-title">Best Indie Matches This Month</div><div class="kf-video-meta">Indies · Latest</div></div>
       </div>
       <div class="kf-video-card">
-        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=NJPW+2026','_blank')">
-          <div class="kf-play"></div>
-        </div>
-        <div class="kf-video-info">
-          <div class="kf-video-title">NJPW Dominion Preview</div>
-          <div class="kf-video-meta">NJPW · Latest</div>
-        </div>
+        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=NJPW+2026','_blank')"><div class="kf-play"></div></div>
+        <div class="kf-video-info"><div class="kf-video-title">NJPW Dominion Preview</div><div class="kf-video-meta">NJPW · Latest</div></div>
       </div>
       <div class="kf-video-card">
-        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=wrestling+crowd+reactions+2026','_blank')">
-          <div class="kf-play"></div>
-        </div>
-        <div class="kf-video-info">
-          <div class="kf-video-title">Biggest Crowd Reactions of the Week</div>
-          <div class="kf-video-meta">Heat · Latest</div>
-        </div>
+        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=wrestling+crowd+reactions+2026','_blank')"><div class="kf-play"></div></div>
+        <div class="kf-video-info"><div class="kf-video-title">Biggest Crowd Reactions of the Week</div><div class="kf-video-meta">Heat · Latest</div></div>
       </div>
       <div class="kf-video-card">
-        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=wrestling+entrance+2026','_blank')">
-          <div class="kf-play"></div>
-        </div>
-        <div class="kf-video-info">
-          <div class="kf-video-title">Best Entrances This Week</div>
-          <div class="kf-video-meta">All Promos · Latest</div>
-        </div>
+        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=wrestling+entrance+2026','_blank')"><div class="kf-play"></div></div>
+        <div class="kf-video-info"><div class="kf-video-title">Best Entrances This Week</div><div class="kf-video-meta">All Promos · Latest</div></div>
       </div>
     </div>
   </div>
 
-  <!-- PODCASTS -->
   <div class="kf-section kf-section-dark" id="podcasts">
     <div class="kf-section-head kf-section-head-light">Podcasts</div>
     <div class="kf-podcast-grid">
@@ -1071,7 +921,6 @@ body {
     </div>
   </div>
 
-  <!-- COMMUNITY -->
   <div class="kf-community">
     <div class="kf-comm-left">
       <div class="kf-comm-head">Face or Heel? Vote Now</div>
@@ -1091,7 +940,6 @@ body {
     </div>
   </div>
 
-  <!-- FOOTER -->
   <div class="kf-footer">
     <div class="kf-footer-logo">KAYFABEHEAT.COM</div>
     <div class="kf-footer-txt">Work · Shoot · Heat · Updated 4× Daily</div>
@@ -1106,7 +954,6 @@ body {
 </div>
 
 <script>
-  // Tab filtering
   const navLinks = document.querySelectorAll('#main-nav a[data-filter]');
   const scrollLinks = document.querySelectorAll('#main-nav a[data-scroll]');
   const cards = document.querySelectorAll('.kf-card');
@@ -1168,7 +1015,6 @@ body {
     });
   });
 
-  // Click promo card to filter
   function filterByPromo(promo) {
     navLinks.forEach(l => l.classList.remove('active'));
     document.querySelector('[data-filter="all"]').classList.add('active');
