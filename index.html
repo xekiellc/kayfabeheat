@@ -55,7 +55,6 @@ body {
   );
 }
 
-/* ── MASTHEAD ── */
 .kf-masthead { padding: 10px 8px 6px; text-align: center; }
 
 .kf-title {
@@ -90,7 +89,6 @@ body {
 .kf-divline { height: 5px; background: var(--black); margin: 6px 0; }
 .kf-divline-thin { height: 2px; background: #1A000044; margin: 4px 0; }
 
-/* ── NAV ── */
 .kf-nav {
   display: flex;
   flex-wrap: wrap;
@@ -118,7 +116,6 @@ body {
 .kf-nav a.hot { background: #E8174A55; color: var(--yellow); }
 .kf-nav a:hover { background: #1A000044; color: var(--yellow); }
 
-/* ── TICKER ── */
 .kf-ticker {
   background: var(--black);
   border-bottom: 3px solid var(--yellow);
@@ -160,7 +157,6 @@ body {
 
 .kf-ticker-item strong { color: var(--yellow); }
 
-/* ── HERO ── */
 .kf-hero {
   background: #1A000088;
   border-bottom: 5px solid var(--black);
@@ -250,7 +246,6 @@ body {
   display: block;
 }
 
-/* ── 3-COL BODY ── */
 .kf-3col {
   display: grid;
   grid-template-columns: 160px 1fr 178px;
@@ -319,7 +314,6 @@ body {
   flex-shrink: 0;
 }
 
-/* ── CENTER FEED ── */
 .kf-center { padding: 12px; }
 
 .kf-card {
@@ -396,7 +390,6 @@ body {
   text-transform: uppercase;
 }
 
-/* ── RIGHT SIDEBAR ── */
 .kf-poll-item { margin-bottom: 9px; }
 
 .kf-poll-label {
@@ -468,7 +461,6 @@ body {
 
 .kf-nl-btn:hover { background: var(--pink); color: var(--yellow); }
 
-/* ── SECTION SHARED ── */
 .kf-section {
   border-bottom: 5px solid var(--black);
   padding: 16px 18px;
@@ -489,7 +481,6 @@ body {
 
 .kf-section-head-light { color: var(--yellow); border-color: var(--yellow); }
 
-/* ── MAJOR PROMOS ── */
 .kf-promo-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -528,7 +519,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* ── US INDIES ── */
 .kf-region { margin-bottom: 16px; }
 .kf-region:last-child { margin-bottom: 0; }
 
@@ -595,7 +585,6 @@ body {
   text-decoration: none;
 }
 
-/* ── GLOBAL ── */
 .kf-global-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -638,7 +627,6 @@ body {
   text-transform: uppercase;
 }
 
-/* ── COMMUNITY ── */
 .kf-community {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -719,7 +707,6 @@ body {
   line-height: 1;
 }
 
-/* ── FOOTER ── */
 .kf-footer {
   background: var(--black);
   border-top: 5px solid var(--yellow);
@@ -789,7 +776,7 @@ body {
 
   <div class="kf-ticker">
     <div class="kf-ticker-label">Breaking</div>
-    <div class="kf-ticker-scroll">
+    <div class="kf-ticker-scroll" id="ticker">
       <span class="kf-ticker-item"><strong>WWE RAW</strong> — CM Punk turns heel on Cody Rhodes &nbsp;·&nbsp; </span>
       <span class="kf-ticker-item"><strong>AEW</strong> — Tony Khan confirms All In card &nbsp;·&nbsp; </span>
       <span class="kf-ticker-item"><strong>NJPW</strong> — Dominion lineup finalized &nbsp;·&nbsp; </span>
@@ -803,15 +790,16 @@ body {
     </div>
   </div>
 
+  <!-- HERO -->
   <div class="kf-hero">
-    <div class="kf-hero-kicker">Top Story · Shoot</div>
-    <div class="kf-hero-hed" id="hero-hed">HULK HOGAN'S FINAL CONFESSION: Suicide Attempt, Fentanyl Addiction Exposed</div>
-    <div class="kf-hero-deck" id="hero-deck">Netflix documentary reveals Hogan's darkest struggles including drug use and contemplating suicide after his divorce.</div>
-    <a href="#" class="kf-hero-cta">Read Now →</a>
+    <div class="kf-hero-kicker">Top Story · Pro Wrestling</div>
+    <div class="kf-hero-hed" id="hero-hed">Loading today's top story...</div>
+    <div class="kf-hero-deck" id="hero-deck">Check back soon for the latest wrestling news.</div>
+    <a href="#" class="kf-hero-cta" id="hero-cta">Read Now →</a>
     <div class="kf-heat-badge">
       <span class="kf-heat-badge-label">Heat Level</span>
-      <span class="kf-heat-badge-num">92°</span>
-      <span class="kf-heat-badge-sub">Scorching</span>
+      <span class="kf-heat-badge-num" id="hero-heat">--°</span>
+      <span class="kf-heat-badge-sub" id="hero-heatsub">Loading</span>
     </div>
   </div>
 
@@ -853,7 +841,7 @@ body {
           <div class="kf-card-excerpt">Multiple roster members frustrated with booking decisions heading into the company's biggest show of the year.</div>
         </div>
         <div class="kf-card-bottom">
-          <div class="kf-card-meta">KayfabeHeat · 1h ago</div>
+          <div class="kf-card-meta">KayfabeHeat · Today</div>
           <a href="#" class="kf-card-read">Read →</a>
         </div>
       </div>
@@ -868,7 +856,7 @@ body {
           <div class="kf-card-excerpt">Three title matches confirmed, fourth blockbuster bout expected by Friday. NJPW is cooking right now.</div>
         </div>
         <div class="kf-card-bottom">
-          <div class="kf-card-meta">KayfabeHeat · 3h ago</div>
+          <div class="kf-card-meta">KayfabeHeat · Today</div>
           <a href="#" class="kf-card-read">Read →</a>
         </div>
       </div>
@@ -883,7 +871,7 @@ body {
           <div class="kf-card-excerpt">When the audience chants the wrong name, no in-ring work saves the angle.</div>
         </div>
         <div class="kf-card-bottom">
-          <div class="kf-card-meta">KayfabeHeat · 5h ago</div>
+          <div class="kf-card-meta">KayfabeHeat · Today</div>
           <a href="#" class="kf-card-read">Read →</a>
         </div>
       </div>
@@ -1028,7 +1016,8 @@ body {
   const lu = document.getElementById('last-updated');
   if (lu) {
     const now = new Date();
-    lu.textContent = 'kayfabeheat.com · Last updated: Thursday, April 23, 2026 at 16:38 UTC' + now.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+    const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    lu.textContent = 'kayfabeheat.com · Last updated: ' + now.toLocaleDateString('en-US', opts);
   }
 </script>
 
