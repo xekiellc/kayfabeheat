@@ -18,6 +18,13 @@ QUERIES = [
     "professional wrestling news",
 ]
 
+EXCLUDE_KEYWORDS = [
+    "suicide", "overdose", "fentanyl", "addiction", "rehab",
+    "death", "died", "dead", "funeral", "murder", "rape",
+    "abuse", "assault", "domestic", "cancer", "hospitalized",
+    "depression", "mental health crisis", "self harm",
+]
+
 def fetch_articles():
     articles = []
     seen_titles = set()
@@ -35,39 +42,26 @@ def fetch_articles():
             data = r.json()
             for a in data.get("articles", []):
                 title = a.get("title", "")
-                if title and title not in seen_titles and "[Removed]" not in title:
-                    seen_titles.add(title)
-                    articles.append({
-                        "title": title,
-                        "description": a.get("description", ""),
-                        "url": a.get("url", "#"),
-                        "source": a.get("source", {}).get("name", ""),
-                        "publishedAt": a.get("publishedAt", ""),
-                    })
+                description = a.get("description", "") or ""
+                if not title or "[Removed]" in title:
+                    continue
+                if title in seen_titles:
+                    continue
+                combined = (title + " " + description).lower()
+                if any(kw in combined for kw in EXCLUDE_KEYWORDS):
+                    print(f"Filtered out sensitive article: {title[:60]}")
+                    continue
+                seen_titles.add(title)
+                articles.append({
+                    "title": title,
+                    "description": description,
+                    "url": a.get("url", "#"),
+                    "source": a.get("source", {}).get("name", ""),
+                    "publishedAt": a.get("publishedAt", ""),
+                })
         except Exception as e:
             print(f"Error fetching {query}: {e}")
     return articles[:20]
-
-def classify_pillar(title, description):
-    text = (title + " " + description).lower()
-    shoot_words = ["contract", "backstage", "sign", "release", "creative", "ratings", "attendance", "budget", "lawsuit", "fired", "hired", "deal", "salary", "tv deal", "business"]
-    heat_words = ["reaction", "crowd", "fans", "chant", "viral", "twitter", "reddit", "social media", "response", "angry", "heat", "pop", "boo"]
-    for w in shoot_words:
-        if w in text:
-            return "Shoot"
-    for w in heat_words:
-        if w in text:
-            return "Heat"
-    return "Work"
-
-def score_heat(title, description):
-    text = (title + " " + description).lower()
-    score = 50
-    hot_words = ["shock", "surprise", "return", "debut", "title", "champion", "heel turn", "fired", "lawsuit", "injury", "retirement", "viral", "boo", "chant", "sellout", "record"]
-    for w in hot_words:
-        if w in text:
-            score += 8
-    return min(score, 99)
 
 def curate_with_claude(articles):
     client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
@@ -75,21 +69,33 @@ def curate_with_claude(articles):
         f"Title: {a['title']}\nSource: {a['source']}\nDescription: {a['description']}\nURL: {a['url']}"
         for a in articles
     ])
-    prompt = f"""You are the editor of KayfabeHeat.com, a pro wrestling news site with three content pillars: Work (in-ring product), Shoot (backstage/business), and Heat (fan reaction/culture).
+    prompt = f"""You are the editor of KayfabeHeat.com, a pro wrestling news site with three content pillars:
+- Work: in-ring product, match results, card previews, workrate
+- Shoot: backstage news, contracts, creative decisions, business, ratings
+- Heat: fan reaction, crowd response, social media buzz, viral moments
+
+IMPORTANT CONTENT RULES — you must never select or write about:
+- Suicide, self-harm, overdose, addiction, or mental health crises
+- Death, murder, or serious criminal acts
+- Sexual assault or domestic abuse
+- Serious medical emergencies or terminal illness
+- Any story that is more about personal tragedy than wrestling
+
+Only select stories that are about the wrestling business, in-ring action, or fan culture.
 
 Here are today's wrestling news articles:
 
 {articles_text}
 
-Select the 6 best articles for the site. For each selected article write:
-- A punchy, bold headline in the style of a wrestling dirt sheet (max 12 words)
+Select the 6 best articles that follow the content rules above. For each write:
+- A punchy bold headline in dirt sheet style (max 12 words)
 - A 1-sentence excerpt (max 25 words, no fluff)
-- Assign a pillar: Work, Shoot, or Heat
-- Assign a heat score 1-99 (how hot/controversial this story is)
+- Pillar: Work, Shoot, or Heat
+- Heat score 1-99 (how hot/controversial the story is in wrestling terms)
 - The original URL
 - The source name
 
-Respond ONLY as valid JSON array like this:
+Respond ONLY as a valid JSON array:
 [
   {{
     "headline": "...",
@@ -116,7 +122,7 @@ No preamble, no markdown, just the JSON array."""
 
 def build_cards(curated):
     cards_html = ""
-    for i, a in enumerate(curated[:6]):
+    for a in curated[:6]:
         pillar = a.get("pillar", "Work")
         heat = a.get("heat", 60)
         headline = a.get("headline", "")
@@ -147,7 +153,7 @@ def build_hero(curated):
         return {
             "kicker": "Top Story · Pro Wrestling",
             "hed": "Loading today's top story...",
-            "deck": "Check back soon for the latest.",
+            "deck": "Check back soon for the latest wrestling news.",
             "url": "#",
             "heat": "50",
             "heatsub": "Warming Up"
@@ -185,28 +191,54 @@ def update_html(cards_html, hero, ticker_html, now_str):
 
     # Update article feed
     html = re.sub(
-        r'(<div class="kf-center" id="article-feed">)(.*?)(</div>\s*</div>\s*<!-- end 3col -->)',
-        lambda m: m.group(1) + "\n" + cards_html + "\n    " + m.group(3),
-        html, flags=re.DOTALL
+        r'(<div class="kf-center" id="article-feed">)(.*?)(</div>\s*\n\s*</div>\s*\n\s*<!-- end 3col -->|</div>\s*\n\s*\n\s*  </div>\s*\n\s*\n\s*  <div class="kf-section)',
+        lambda m: m.group(1) + "\n" + cards_html + "\n    </div>\n\n  <div class=\"kf-section",
+        html, flags=re.DOTALL, count=1
     )
 
-    # Update hero
-    html = re.sub(r'(<div class="kf-hero-kicker">)[^<]*(</div>)', f'\\g<1>{hero["kicker"]}\\g<2>', html)
-    html = re.sub(r'(<div class="kf-hero-hed"[^>]*>)[^<]*(</div>)', f'\\g<1>{hero["hed"]}\\g<2>', html)
-    html = re.sub(r'(<div class="kf-hero-deck"[^>]*>)[^<]*(</div>)', f'\\g<1>{hero["deck"]}\\g<2>', html)
-    html = re.sub(r'(<span class="kf-heat-badge-num">)[^<]*(</span>)', f'\\g<1>{hero["heat"]}°\\g<2>', html)
-    html = re.sub(r'(<span class="kf-heat-badge-sub">)[^<]*(</span>)', f'\\g<1>{hero["heatsub"]}\\g<2>', html)
+    # Update hero headline
+    html = re.sub(
+        r'(<div class="kf-hero-hed"[^>]*>)(.*?)(</div>)',
+        lambda m: m.group(1) + hero["hed"] + m.group(3),
+        html, flags=re.DOTALL, count=1
+    )
+
+    # Update hero deck
+    html = re.sub(
+        r'(<div class="kf-hero-deck"[^>]*>)(.*?)(</div>)',
+        lambda m: m.group(1) + hero["deck"] + m.group(3),
+        html, flags=re.DOTALL, count=1
+    )
+
+    # Update hero kicker
+    html = re.sub(
+        r'(<div class="kf-hero-kicker">)(.*?)(</div>)',
+        lambda m: m.group(1) + hero["kicker"] + m.group(3),
+        html, flags=re.DOTALL, count=1
+    )
+
+    # Update heat badge
+    html = re.sub(
+        r'(<span class="kf-heat-badge-num"[^>]*>)(.*?)(</span>)',
+        lambda m: m.group(1) + hero["heat"] + "°" + m.group(3),
+        html, flags=re.DOTALL, count=1
+    )
+    html = re.sub(
+        r'(<span class="kf-heat-badge-sub"[^>]*>)(.*?)(</span>)',
+        lambda m: m.group(1) + hero["heatsub"] + m.group(3),
+        html, flags=re.DOTALL, count=1
+    )
 
     # Update ticker
     html = re.sub(
-        r'(<div class="kf-ticker-scroll">)(.*?)(</div>\s*</div>\s*<!-- HERO -->)',
+        r'(<div class="kf-ticker-scroll"[^>]*>)(.*?)(</div>)',
         lambda m: m.group(1) + "\n      " + ticker_html + "\n    " + m.group(3),
-        html, flags=re.DOTALL
+        html, flags=re.DOTALL, count=1
     )
 
-    # Update last updated
+    # Update last updated timestamp
     html = re.sub(
-        r"(kayfabeheat\.com · Last updated: )([^<'\"]*)",
+        r'(kayfabeheat\.com · Last updated: )([^<"\']*)',
         f"\\g<1>{now_str}",
         html
     )
@@ -219,6 +251,10 @@ def main():
     print("Fetching articles...")
     articles = fetch_articles()
     print(f"Fetched {len(articles)} articles.")
+
+    if not articles:
+        print("No articles fetched. Exiting.")
+        return
 
     print("Curating with Claude...")
     curated = curate_with_claude(articles)
