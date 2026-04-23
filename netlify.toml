@@ -2,6 +2,18 @@
   publish = "."
 
 [[redirects]]
+  from = "http://kayfabeheat.com/*"
+  to = "https://kayfabeheat.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.kayfabeheat.com/*"
+  to = "https://kayfabeheat.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/submit.html"
   to = "/submit.html"
   status = 200
