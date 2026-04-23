@@ -269,53 +269,8 @@ body {
   line-height: 1.5;
 }
 
-/* HONEYPOT - hide from humans, catches bots */
 .kf-honeypot { display: none; }
 
-/* SUCCESS PAGE */
-.kf-success-page {
-  display: none;
-  padding: 40px 20px;
-  text-align: center;
-  background: #1A000022;
-  border-right: var(--border);
-}
-
-.kf-success-hed {
-  font-family: 'Passion One', sans-serif;
-  font-size: 52px;
-  color: var(--black);
-  letter-spacing: 2px;
-  text-shadow: 3px 3px 0 #F7E02088;
-  margin-bottom: 12px;
-  line-height: 1;
-}
-
-.kf-success-sub {
-  font-family: 'Special Elite', cursive;
-  font-size: 15px;
-  color: #1A0000cc;
-  line-height: 1.6;
-  max-width: 420px;
-  margin: 0 auto 20px;
-}
-
-.kf-success-btn {
-  display: inline-block;
-  background: var(--black);
-  color: var(--yellow);
-  font-family: 'Russo One', sans-serif;
-  font-size: 13px;
-  letter-spacing: 3px;
-  padding: 10px 24px;
-  text-decoration: none;
-  text-transform: uppercase;
-  border: 3px solid var(--black);
-}
-
-.kf-success-btn:hover { background: var(--red); }
-
-/* SIDEBAR */
 .kf-sidebar { background: #1A000022; }
 
 .kf-sb-block {
@@ -336,11 +291,7 @@ body {
   letter-spacing: 1px;
 }
 
-.kf-tier-item {
-  padding: 8px 0;
-  border-bottom: 2px dashed #1A000033;
-}
-
+.kf-tier-item { padding: 8px 0; border-bottom: 2px dashed #1A000033; }
 .kf-tier-item:last-child { border-bottom: none; }
 
 .kf-tier-badge {
@@ -355,43 +306,15 @@ body {
   margin-bottom: 4px;
 }
 
-.kf-tier-name {
-  font-family: 'Squada One', cursive;
-  font-size: 14px;
-  color: var(--black);
-  margin-bottom: 3px;
-}
-
-.kf-tier-desc {
-  font-family: 'Special Elite', cursive;
-  font-size: 11px;
-  color: #1A0000aa;
-  line-height: 1.35;
-}
+.kf-tier-name { font-family: 'Squada One', cursive; font-size: 14px; color: var(--black); margin-bottom: 3px; }
+.kf-tier-desc { font-family: 'Special Elite', cursive; font-size: 11px; color: #1A0000aa; line-height: 1.35; }
 
 .kf-faq-item { margin-bottom: 12px; }
 .kf-faq-item:last-child { margin-bottom: 0; }
+.kf-faq-q { font-family: 'Squada One', cursive; font-size: 13px; color: var(--black); margin-bottom: 3px; line-height: 1.2; }
+.kf-faq-a { font-family: 'Special Elite', cursive; font-size: 11px; color: #1A0000aa; line-height: 1.4; }
 
-.kf-faq-q {
-  font-family: 'Squada One', cursive;
-  font-size: 13px;
-  color: var(--black);
-  margin-bottom: 3px;
-  line-height: 1.2;
-}
-
-.kf-faq-a {
-  font-family: 'Special Elite', cursive;
-  font-size: 11px;
-  color: #1A0000aa;
-  line-height: 1.4;
-}
-
-.kf-directory {
-  border-bottom: 5px solid var(--black);
-  padding: 16px 20px;
-  background: #1A000022;
-}
+.kf-directory { border-bottom: 5px solid var(--black); padding: 16px 20px; background: #1A000022; }
 
 .kf-dir-head {
   font-family: 'Passion One', sans-serif;
@@ -417,34 +340,10 @@ body {
 
 .kf-dir-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 
-.kf-dir-card {
-  background: #F7E02033;
-  border: 3px solid var(--black);
-  padding: 9px 10px;
-}
-
-.kf-dir-card-name {
-  font-family: 'Squada One', cursive;
-  font-size: 13px;
-  color: var(--black);
-  margin-bottom: 2px;
-  line-height: 1.15;
-}
-
-.kf-dir-card-loc {
-  font-family: 'Russo One', sans-serif;
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: #1A000066;
-  margin-bottom: 4px;
-  text-transform: uppercase;
-}
-
-.kf-dir-card-next {
-  font-family: 'Special Elite', cursive;
-  font-size: 11px;
-  color: #1A0000aa;
-}
+.kf-dir-card { background: #F7E02033; border: 3px solid var(--black); padding: 9px 10px; }
+.kf-dir-card-name { font-family: 'Squada One', cursive; font-size: 13px; color: var(--black); margin-bottom: 2px; line-height: 1.15; }
+.kf-dir-card-loc { font-family: 'Russo One', sans-serif; font-size: 9px; letter-spacing: 2px; color: #1A000066; margin-bottom: 4px; text-transform: uppercase; }
+.kf-dir-card-next { font-family: 'Special Elite', cursive; font-size: 11px; color: #1A0000aa; }
 
 .kf-dir-card-empty {
   background: #1A000011;
@@ -515,8 +414,7 @@ body {
 
   <div class="kf-body">
 
-    <!-- FORM -->
-    <div class="kf-form-wrap" id="form-wrap">
+    <div class="kf-form-wrap">
       <div class="kf-form-head">Promotion Info</div>
 
       <form
@@ -526,12 +424,10 @@ body {
         data-netlify-honeypot="bot-field"
         action="/submit-success.html"
       >
-        <!-- Netlify required hidden input -->
         <input type="hidden" name="form-name" value="promotion-submission" />
 
-        <!-- Honeypot — bots fill this, humans don't see it -->
         <div class="kf-honeypot">
-          <label>Don't fill this out: <input name="bot-field" /></label>
+          <label>Do not fill this out: <input name="bot-field" /></label>
         </div>
 
         <div class="kf-form-section">
