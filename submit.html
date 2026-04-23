@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Submit Your Promotion — KayfabeHeat</title>
+<meta name="description" content="Get your wrestling promotion listed in the KayfabeHeat Regional Directory. Free forever." />
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PG6F1WQ81C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PG6F1WQ81C');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@900&family=Squada+One&family=Special+Elite&family=Permanent+Marker&family=Russo+One&display=swap" rel="stylesheet" />
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #1A0000;
+  --yellow: #F7E020;
+  --pink: #ED4A6A;
+  --red: #E8174A;
+  --border: 4px solid #1A0000;
+}
+
+body {
+  background: #111;
+  display: flex;
+  justify-content: center;
+  padding: 20px 10px;
+  min-height: 100vh;
+}
+
+.kf {
+  font-family: 'Special Elite', cursive;
+  border: 8px solid var(--black);
+  border-radius: 3px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 960px;
+  background: linear-gradient(180deg,
+    #F7E020 0%, #F7E020 8%,
+    #F4B830 13%, #F08030 20%,
+    #ED4A6A 30%, #E8174A 38%,
+    #C4106A 52%, #9010A8 68%,
+    #5010D0 84%, #2A10E0 100%
+  );
+}
+
+.kf-masthead { padding: 10px 8px 6px; text-align: center; }
+
+.kf-title {
+  font-family: 'Passion One', sans-serif;
+  font-weight: 900;
+  font-size: clamp(52px, 10vw, 96px);
+  line-height: 0.88;
+  color: var(--black);
+  letter-spacing: 2px;
+  display: block;
+  transform: scaleX(1.08);
+  transform-origin: center;
+}
+
+.kf-tagline {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 18px;
+  color: var(--black);
+  margin-top: 5px;
+  display: inline-block;
+  transform: rotate(-1deg);
+}
+
+.kf-meta-line {
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #1A000088;
+  margin-top: 3px;
+}
+
+.kf-divline { height: 5px; background: var(--black); margin: 6px 0; }
+.kf-divline-thin { height: 2px; background: #1A000044; margin: 4px 0; }
+
+.kf-nav {
+  display: flex;
+  flex-wrap: wrap;
+  background: #1A000077;
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+
+.kf-nav a {
+  flex: 1;
+  min-width: 70px;
+  text-align: center;
+  padding: 8px 4px;
+  font-family: 'Russo One', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: #F7E020bb;
+  border-right: 1px solid #1A000055;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.kf-nav a:last-child { border-right: none; }
+.kf-nav a.active { background: var(--black); color: var(--yellow); }
+.kf-nav a.hot { background: #E8174A55; color: var(--yellow); }
+.kf-nav a:hover { background: #1A000044; color: var(--yellow); }
+
+/* PAGE HERO */
+.kf-page-hero {
+  background: #1A000088;
+  border-bottom: 5px solid var(--black);
+  padding: 24px 22px 20px;
+  text-align: center;
+}
+
+.kf-page-hero-hed {
+  font-family: 'Passion One', sans-serif;
+  font-size: clamp(36px, 7vw, 60px);
+  color: var(--yellow);
+  letter-spacing: 2px;
+  line-height: 0.95;
+  text-shadow: 3px 3px 0 var(--black);
+  margin-bottom: 10px;
+}
+
+.kf-page-hero-sub {
+  font-family: 'Special Elite', cursive;
+  font-size: 14px;
+  color: #F7E020cc;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* BODY */
+.kf-body {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  border-bottom: 5px solid var(--black);
+}
+
+.kf-form-wrap {
+  padding: 20px;
+  border-right: var(--border);
+  background: #1A000022;
+}
+
+.kf-form-head {
+  font-family: 'Passion One', sans-serif;
+  font-size: 32px;
+  color: var(--black);
+  letter-spacing: 2px;
+  border-bottom: 4px solid var(--black);
+  padding-bottom: 6px;
+  margin-bottom: 18px;
+}
+
+.kf-form-section { margin-bottom: 16px; }
+
+.kf-form-section-head {
+  font-family: 'Russo One', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #1A000077;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #1A000022;
+}
+
+.kf-field { margin-bottom: 12px; }
+
+.kf-label {
+  display: block;
+  font-family: 'Russo One', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--black);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.kf-label span { color: var(--red); }
+
+.kf-input {
+  width: 100%;
+  background: #F7E02055;
+  border: 3px solid var(--black);
+  padding: 8px 10px;
+  font-family: 'Special Elite', cursive;
+  font-size: 14px;
+  color: var(--black);
+  outline: none;
+  border-radius: 0;
+  appearance: none;
+}
+
+.kf-input::placeholder { color: #1A000044; }
+.kf-input:focus { background: #F7E020aa; border-color: var(--black); }
+
+.kf-select {
+  width: 100%;
+  background: #F7E02055;
+  border: 3px solid var(--black);
+  padding: 8px 10px;
+  font-family: 'Special Elite', cursive;
+  font-size: 14px;
+  color: var(--black);
+  outline: none;
+  border-radius: 0;
+  appearance: none;
+  cursor: pointer;
+}
+
+.kf-select:focus { background: #F7E020aa; }
+
+.kf-textarea {
+  width: 100%;
+  background: #F7E02055;
+  border: 3px solid var(--black);
+  padding: 8px 10px;
+  font-family: 'Special Elite', cursive;
+  font-size: 14px;
+  color: var(--black);
+  outline: none;
+  border-radius: 0;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.kf-textarea::placeholder { color: #1A000044; }
+.kf-textarea:focus { background: #F7E020aa; }
+
+.kf-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.kf-checkboxes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
+
+.kf-check-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Special Elite', cursive;
+  font-size: 13px;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.kf-check-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--black);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.kf-submit {
+  width: 100%;
+  background: var(--black);
+  color: var(--yellow);
+  font-family: 'Passion One', sans-serif;
+  font-size: 26px;
+  letter-spacing: 3px;
+  padding: 14px;
+  border: 3px solid var(--black);
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.kf-submit:hover { background: var(--red); }
+
+.kf-fine-print {
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  color: #1A000066;
+  text-align: center;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* SUCCESS MESSAGE */
+.kf-success {
+  display: none;
+  background: var(--black);
+  border: 4px solid var(--yellow);
+  padding: 24px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.kf-success-hed {
+  font-family: 'Passion One', sans-serif;
+  font-size: 36px;
+  color: var(--yellow);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.kf-success-sub {
+  font-family: 'Special Elite', cursive;
+  font-size: 14px;
+  color: #F7E020aa;
+  line-height: 1.5;
+}
+
+/* SIDEBAR */
+.kf-sidebar { background: #1A000022; padding: 0; }
+
+.kf-sb-block {
+  border-bottom: 4px solid var(--black);
+  padding: 14px;
+  background: #1A000022;
+}
+
+.kf-sb-block:last-child { border-bottom: none; }
+
+.kf-sb-head {
+  font-family: 'Squada One', cursive;
+  font-size: 18px;
+  color: var(--black);
+  border-bottom: 3px solid var(--black);
+  padding-bottom: 5px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.kf-tier-item {
+  padding: 8px 0;
+  border-bottom: 2px dashed #1A000033;
+}
+
+.kf-tier-item:last-child { border-bottom: none; }
+
+.kf-tier-badge {
+  display: inline-block;
+  font-family: 'Russo One', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  padding: 2px 7px;
+  background: var(--black);
+  color: var(--yellow);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.kf-tier-name {
+  font-family: 'Squada One', cursive;
+  font-size: 14px;
+  color: var(--black);
+  margin-bottom: 3px;
+  letter-spacing: 0.5px;
+}
+
+.kf-tier-desc {
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  color: #1A0000aa;
+  line-height: 1.35;
+}
+
+.kf-faq-item { margin-bottom: 12px; }
+.kf-faq-item:last-child { margin-bottom: 0; }
+
+.kf-faq-q {
+  font-family: 'Squada One', cursive;
+  font-size: 13px;
+  color: var(--black);
+  margin-bottom: 3px;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+}
+
+.kf-faq-a {
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  color: #1A0000aa;
+  line-height: 1.4;
+}
+
+/* DIRECTORY PREVIEW */
+.kf-directory {
+  border-bottom: 5px solid var(--black);
+  padding: 16px 20px;
+  background: #1A000022;
+}
+
+.kf-dir-head {
+  font-family: 'Passion One', sans-serif;
+  font-size: 28px;
+  color: var(--black);
+  letter-spacing: 2px;
+  border-bottom: 4px solid var(--black);
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+
+.kf-dir-region { margin-bottom: 16px; }
+.kf-dir-region:last-child { margin-bottom: 0; }
+
+.kf-dir-region-name {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 13px;
+  color: #1A000066;
+  margin-bottom: 8px;
+  display: inline-block;
+  transform: rotate(-0.5deg);
+}
+
+.kf-dir-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+.kf-dir-card {
+  background: #F7E02033;
+  border: 3px solid var(--black);
+  padding: 9px 10px;
+}
+
+.kf-dir-card-name {
+  font-family: 'Squada One', cursive;
+  font-size: 13px;
+  color: var(--black);
+  margin-bottom: 2px;
+  line-height: 1.15;
+}
+
+.kf-dir-card-loc {
+  font-family: 'Russo One', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #1A000066;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.kf-dir-card-next {
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  color: #1A0000aa;
+}
+
+.kf-dir-card-empty {
+  background: #1A000011;
+  border: 3px dashed #1A000033;
+  padding: 9px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70px;
+}
+
+.kf-dir-card-empty span {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 11px;
+  color: #1A000044;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* FOOTER */
+.kf-footer {
+  background: var(--black);
+  border-top: 5px solid var(--yellow);
+  padding: 10px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.kf-footer-logo { font-family: 'Passion One', sans-serif; font-size: 20px; letter-spacing: 2px; color: var(--yellow); }
+.kf-footer-txt { font-family: 'Special Elite', cursive; font-size: 11px; color: #F7E02077; }
+.kf-footer-links { display: flex; gap: 16px; }
+.kf-footer-links a { font-family: 'Russo One', sans-serif; font-size: 10px; letter-spacing: 2px; color: #F7E02066; text-decoration: none; text-transform: uppercase; }
+.kf-footer-links a:hover { color: var(--yellow); }
+</style>
+</head>
+
+<body>
+<div class="kf">
+
+  <div class="kf-masthead">
+    <span class="kf-title">KAYFABE HEAT</span>
+    <div class="kf-divline"></div>
+    <span class="kf-tagline">Work · Shoot · Heat</span>
+    <div class="kf-divline-thin"></div>
+    <div class="kf-meta-line">kayfabeheat.com · The Wrestling Directory</div>
+    <div class="kf-divline" style="margin-top:6px;"></div>
+  </div>
+
+  <nav class="kf-nav">
+    <a href="/">All</a>
+    <a href="/">Work</a>
+    <a href="/">Shoot</a>
+    <a href="/">Heat</a>
+    <a href="/">Major Promos</a>
+    <a href="/">US Indies</a>
+    <a href="/">Global</a>
+    <a href="/">Videos</a>
+    <a href="/">Podcasts</a>
+    <a href="submit.html" class="hot active">Submit</a>
+  </nav>
+
+  <div class="kf-page-hero">
+    <div class="kf-page-hero-hed">Submit Your Promotion</div>
+    <div class="kf-page-hero-sub">Get your promotion listed in the KayfabeHeat Regional Directory. Free forever. Seen by wrestling fans across the country.</div>
+  </div>
+
+  <div class="kf-body">
+
+    <div class="kf-form-wrap">
+      <div class="kf-form-head">Promotion Info</div>
+
+      <form id="submit-form" onsubmit="handleSubmit(event)">
+
+        <div class="kf-form-section">
+          <div class="kf-form-section-head">Basic Details</div>
+          <div class="kf-field">
+            <label class="kf-label">Promotion Name <span>*</span></label>
+            <input class="kf-input" type="text" name="name" placeholder="e.g. Ohio Championship Wrestling" required />
+          </div>
+          <div class="kf-field-row">
+            <div class="kf-field">
+              <label class="kf-label">City <span>*</span></label>
+              <input class="kf-input" type="text" name="city" placeholder="Cleveland" required />
+            </div>
+            <div class="kf-field">
+              <label class="kf-label">State <span>*</span></label>
+              <input class="kf-input" type="text" name="state" placeholder="OH" required />
+            </div>
+          </div>
+          <div class="kf-field">
+            <label class="kf-label">Region <span>*</span></label>
+            <select class="kf-select" name="region" required>
+              <option value="">— Select Region —</option>
+              <option value="Midwest">Midwest</option>
+              <option value="Northeast">Northeast</option>
+              <option value="Southeast">Southeast</option>
+              <option value="Mid-Atlantic">Mid-Atlantic</option>
+              <option value="Southwest">Southwest</option>
+              <option value="West Coast">West Coast</option>
+              <option value="Pacific Northwest">Pacific Northwest</option>
+              <option value="Mountain West">Mountain West</option>
+              <option value="Canada">Canada</option>
+              <option value="International">International</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="kf-form-section">
+          <div class="kf-form-section-head">Online Presence</div>
+          <div class="kf-field">
+            <label class="kf-label">Website</label>
+            <input class="kf-input" type="url" name="website" placeholder="https://yourpromotion.com" />
+          </div>
+          <div class="kf-field-row">
+            <div class="kf-field">
+              <label class="kf-label">X / Twitter</label>
+              <input class="kf-input" type="text" name="twitter" placeholder="@handle" />
+            </div>
+            <div class="kf-field">
+              <label class="kf-label">Instagram</label>
+              <input class="kf-input" type="text" name="instagram" placeholder="@handle" />
+            </div>
+          </div>
+          <div class="kf-field">
+            <label class="kf-label">Facebook Page URL</label>
+            <input class="kf-input" type="url" name="facebook" placeholder="https://facebook.com/yourpromo" />
+          </div>
+        </div>
+
+        <div class="kf-form-section">
+          <div class="kf-form-section-head">Next Show</div>
+          <div class="kf-field-row">
+            <div class="kf-field">
+              <label class="kf-label">Show Date</label>
+              <input class="kf-input" type="text" name="show_date" placeholder="May 10, 2026" />
+            </div>
+            <div class="kf-field">
+              <label class="kf-label">Venue</label>
+              <input class="kf-input" type="text" name="venue" placeholder="The Agora, Cleveland" />
+            </div>
+          </div>
+          <div class="kf-field">
+            <label class="kf-label">Tickets URL</label>
+            <input class="kf-input" type="url" name="tickets" placeholder="https://tickets.yourpromotion.com" />
+          </div>
+        </div>
+
+        <div class="kf-form-section">
+          <div class="kf-form-section-head">About Your Promotion</div>
+          <div class="kf-field">
+            <label class="kf-label">One-Line Description <span>*</span></label>
+            <input class="kf-input" type="text" name="description" placeholder="Northeast Ohio's premier independent wrestling promotion" required />
+          </div>
+          <div class="kf-field">
+            <label class="kf-label">Style of Wrestling</label>
+            <div class="kf-checkboxes">
+              <label class="kf-check-item"><input type="checkbox" name="style" value="Traditional" /> Traditional / Old School</label>
+              <label class="kf-check-item"><input type="checkbox" name="style" value="Lucha" /> Lucha / High Fly</label>
+              <label class="kf-check-item"><input type="checkbox" name="style" value="Hardcore" /> Hardcore / Deathmatch</label>
+              <label class="kf-check-item"><input type="checkbox" name="style" value="Sports Entertainment" /> Sports Entertainment</label>
+              <label class="kf-check-item"><input type="checkbox" name="style" value="Technical" /> Technical / Strong Style</label>
+              <label class="kf-check-item"><input type="checkbox" name="style" value="Mixed" /> Mixed / All Styles</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="kf-form-section">
+          <div class="kf-form-section-head">Contact</div>
+          <div class="kf-field">
+            <label class="kf-label">Your Name <span>*</span></label>
+            <input class="kf-input" type="text" name="contact_name" placeholder="Promoter / Contact Name" required />
+          </div>
+          <div class="kf-field">
+            <label class="kf-label">Email <span>*</span></label>
+            <input class="kf-input" type="email" name="contact_email" placeholder="you@yourpromotion.com" required />
+          </div>
+        </div>
+
+        <button type="submit" class="kf-submit">Submit Your Promotion →</button>
+        <div class="kf-fine-print">Free to list. No pay-to-play. We review all submissions within 48 hours.<br>Spam or fake promotions get permanently banned.</div>
+
+      </form>
+
+      <div class="kf-success" id="success-msg">
+        <div class="kf-success-hed">You're In The Ring!</div>
+        <div class="kf-success-sub">Your submission has been received. We'll review it within 48 hours and add you to the directory. Watch your email for confirmation.</div>
+      </div>
+    </div>
+
+    <div class="kf-sidebar">
+      <div class="kf-sb-block">
+        <div class="kf-sb-head">Listing Tiers</div>
+        <div class="kf-tier-item">
+          <div class="kf-tier-badge">Tier 1 · Free</div>
+          <div class="kf-tier-name">Basic Listing</div>
+          <div class="kf-tier-desc">Name, location, website, next show date. Shows in regional directory.</div>
+        </div>
+        <div class="kf-tier-item">
+          <div class="kf-tier-badge">Tier 2 · Free</div>
+          <div class="kf-tier-name">Featured Listing</div>
+          <div class="kf-tier-desc">Full profile, show history, roster links. Earned after 3 submitted shows.</div>
+        </div>
+        <div class="kf-tier-item">
+          <div class="kf-tier-badge">Tier 3 · Coming Soon</div>
+          <div class="kf-tier-name">Promoted Listing</div>
+          <div class="kf-tier-desc">Homepage spotlight, newsletter mention, regional featured card.</div>
+        </div>
+      </div>
+
+      <div class="kf-sb-block">
+        <div class="kf-sb-head">FAQ</div>
+        <div class="kf-faq-item">
+          <div class="kf-faq-q">Is it really free?</div>
+          <div class="kf-faq-a">Yes. Always. We're building the indie wrestling map, not a paywall.</div>
+        </div>
+        <div class="kf-faq-item">
+          <div class="kf-faq-q">How long does approval take?</div>
+          <div class="kf-faq-a">48 hours or less. You'll get an email either way.</div>
+        </div>
+        <div class="kf-faq-item">
+          <div class="kf-faq-q">Can I update my show dates?</div>
+          <div class="kf-faq-a">Yes — resubmit anytime with updated info. We'll refresh your listing.</div>
+        </div>
+        <div class="kf-faq-item">
+          <div class="kf-faq-q">What gets rejected?</div>
+          <div class="kf-faq-a">Fake promotions, spam, or anything that doesn't pass a basic sanity check.</div>
+        </div>
+        <div class="kf-faq-item">
+          <div class="kf-faq-q">Questions?</div>
+          <div class="kf-faq-a">Email us at info@kayfabeheat.com and we'll get back to you fast.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="kf-directory">
+    <div class="kf-dir-head">Regional Directory</div>
+
+    <div class="kf-dir-region">
+      <div class="kf-dir-region-name">Midwest · Ohio</div>
+      <div class="kf-dir-grid">
+        <div class="kf-dir-card">
+          <div class="kf-dir-card-name">Ohio Championship Wrestling</div>
+          <div class="kf-dir-card-loc">Cleveland, OH</div>
+          <div class="kf-dir-card-next">Next: May 10</div>
+        </div>
+        <div class="kf-dir-card">
+          <div class="kf-dir-card-name">NEO Pro Wrestling</div>
+          <div class="kf-dir-card-loc">Northfield, OH</div>
+          <div class="kf-dir-card-next">Next: May 17</div>
+        </div>
+        <div class="kf-dir-card">
+          <div class="kf-dir-card-name">WAR Wrestling</div>
+          <div class="kf-dir-card-loc">NE Ohio</div>
+          <div class="kf-dir-card-next">Next: TBA</div>
+        </div>
+        <div class="kf-dir-card">
+          <div class="kf-dir-card-name">Mega Championship Wrestling</div>
+          <div class="kf-dir-card-loc">Ohio</div>
+          <div class="kf-dir-card-next">Next: May 24</div>
+        </div>
+        <div class="kf-dir-card">
+          <div class="kf-dir-card-name">Ohio Valley Wrestling</div>
+          <div class="kf-dir-card-loc">Louisville, KY</div>
+          <div class="kf-dir-card-next">Next: May 3</div>
+        </div>
+        <div class="kf-dir-card-empty"><span>Your Promotion<br>Here →</span></div>
+      </div>
+    </div>
+
+    <div class="kf-dir-region">
+      <div class="kf-dir-region-name">Northeast · NY / NJ / New England</div>
+      <div class="kf-dir-grid">
+        <div class="kf-dir-card">
+          <div class="kf-dir-card-name">Game Changer Wrestling</div>
+          <div class="kf-dir-card-loc">Various, NJ</div>
+          <div class="kf-dir-card-next">Next: May 2</div>
+        </div>
+        <div class="kf-dir-card">
+          <div class="kf-dir-card-name">Beyond Wrestling</div>
+          <div class="kf-dir-card-loc">Providence, RI</div>
+          <div class="kf-dir-card-next">Next: May 9</div>
+        </div>
+        <div class="kf-dir-card-empty"><span>Your Promotion<br>Here →</span></div>
+      </div>
+    </div>
+
+    <div class="kf-dir-region">
+      <div class="kf-dir-region-name">Mid-Atlantic · Southeast</div>
+      <div class="kf-dir-grid">
+        <div class="kf-dir-card">
+          <div class="kf-dir-card-name">Mid Atlantic Wrestling Alliance</div>
+          <div class="kf-dir-card-loc">Mid-Atlantic</div>
+          <div class="kf-dir-card-next">Next: TBA</div>
+        </div>
+        <div class="kf-dir-card-empty"><span>Your Promotion<br>Here →</span></div>
+        <div class="kf-dir-card-empty"><span>Your Promotion<br>Here →</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="kf-footer">
+    <div class="kf-footer-logo">KAYFABEHEAT.COM</div>
+    <div class="kf-footer-txt">Work · Shoot · Heat · Updated 4× Daily</div>
+    <div class="kf-footer-links">
+      <a href="/">Home</a>
+      <a href="submit.html">Submit</a>
+      <a href="mailto:info@kayfabeheat.com">Contact</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('submit-form');
+    const data = new FormData(form);
+    const styles = [];
+    data.getAll('style').forEach(s => styles.push(s));
+    const payload = {
+      name: data.get('name'),
+      city: data.get('city'),
+      state: data.get('state'),
+      region: data.get('region'),
+      website: data.get('website'),
+      twitter: data.get('twitter'),
+      instagram: data.get('instagram'),
+      facebook: data.get('facebook'),
+      show_date: data.get('show_date'),
+      venue: data.get('venue'),
+      tickets: data.get('tickets'),
+      description: data.get('description'),
+      styles: styles.join(', '),
+      contact_name: data.get('contact_name'),
+      contact_email: data.get('contact_email'),
+      submitted_at: new Date().toISOString()
+    };
+    const mailto = `mailto:info@kayfabeheat.com?subject=Promotion Submission: ${encodeURIComponent(payload.name)}&body=${encodeURIComponent(
+      `PROMOTION SUBMISSION\n\n` +
+      `Name: ${payload.name}\n` +
+      `Location: ${payload.city}, ${payload.state}\n` +
+      `Region: ${payload.region}\n` +
+      `Website: ${payload.website}\n` +
+      `Twitter: ${payload.twitter}\n` +
+      `Instagram: ${payload.instagram}\n` +
+      `Facebook: ${payload.facebook}\n` +
+      `Next Show: ${payload.show_date} at ${payload.venue}\n` +
+      `Tickets: ${payload.tickets}\n` +
+      `Description: ${payload.description}\n` +
+      `Styles: ${payload.styles}\n` +
+      `Contact: ${payload.contact_name} — ${payload.contact_email}\n` +
+      `Submitted: ${payload.submitted_at}`
+    )}`;
+    window.location.href = mailto;
+    setTimeout(() => {
+      form.style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+    }, 1000);
+  }
+</script>
+
+</body>
+</html>
