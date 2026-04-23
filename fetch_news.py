@@ -16,6 +16,8 @@ QUERIES = [
     "TNA wrestling",
     "ROH wrestling",
     "professional wrestling news",
+    "wrestling podcast",
+    "wrestling video",
 ]
 
 def fetch_articles():
@@ -50,7 +52,36 @@ def fetch_articles():
                 })
         except Exception as e:
             print(f"Error fetching {query}: {e}")
-    return articles[:20]
+    return articles[:30]
+
+def clean_text(text):
+    text = re.sub(r'\*+', '', text)
+    text = re.sub(r'#+', '', text)
+    text = re.sub(r'`+', '', text)
+    text = text.strip()
+    return text
+
+def detect_promotion(title, description):
+    text = (title + " " + description).lower()
+    if "wwe" in text or "raw" in text or "smackdown" in text or "wrestlemania" in text or "nxt" in text:
+        return "WWE"
+    if "aew" in text or "dynamite" in text or "collision" in text or "all in" in text or "all elite" in text:
+        return "AEW"
+    if "njpw" in text or "new japan" in text or "dominion" in text:
+        return "NJPW"
+    if "tna" in text or "impact" in text:
+        return "TNA"
+    if "roh" in text or "ring of honor" in text:
+        return "ROH"
+    if "nwa" in text:
+        return "NWA"
+    if "gcw" in text or "game changer" in text:
+        return "GCW"
+    if "stardom" in text:
+        return "Stardom"
+    if "cmll" in text or "lucha" in text or "aaa" in text:
+        return "Lucha"
+    return "Indies"
 
 def curate_with_claude(articles):
     client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
@@ -59,21 +90,23 @@ def curate_with_claude(articles):
         for a in articles
     ])
     prompt = f"""You are the editor of KayfabeHeat.com, a pro wrestling news site with three content pillars:
-- Work: in-ring product, match results, card previews, workrate
-- Shoot: backstage news, contracts, creative decisions, business, ratings
-- Heat: fan reaction, crowd response, social media buzz, viral moments
+- Work: in-ring product, match results, card previews, workrate, match quality
+- Shoot: backstage news, contracts, creative decisions, business, ratings, money
+- Heat: fan reaction, crowd response, social media buzz, viral moments, controversy
 
 Here are today's wrestling news articles:
 
 {articles_text}
 
-Select the 6 best, most interesting articles. For each write:
-- A punchy bold headline in dirt sheet style (max 12 words)
-- A 1-sentence excerpt (max 25 words, no fluff)
+Select the 12 best and most interesting articles covering a variety of promotions and topics. For each write:
+- A punchy bold headline in dirt sheet style (max 12 words, NO asterisks, NO markdown formatting)
+- A 1-sentence excerpt (max 25 words, no fluff, NO asterisks, NO markdown)
 - Pillar: Work, Shoot, or Heat
-- Heat score 1-99 (how hot or significant this story is in wrestling)
+- Heat score 1-99 (how hot or significant this story is)
 - The original URL
 - The source name
+
+IMPORTANT: Do not use any markdown formatting like ** or * or # in headlines or excerpts. Plain text only.
 
 Respond ONLY as a valid JSON array:
 [
@@ -91,18 +124,22 @@ No preamble, no markdown, just the JSON array."""
 
     message = client.messages.create(
         model="claude-sonnet-4-20250514",
-        max_tokens=2000,
+        max_tokens=3000,
         messages=[{"role": "user", "content": prompt}]
     )
     raw = message.content[0].text.strip()
     raw = re.sub(r'^```json\s*', '', raw)
     raw = re.sub(r'\s*```$', '', raw)
     import json
-    return json.loads(raw)
+    curated = json.loads(raw)
+    for a in curated:
+        a["headline"] = clean_text(a.get("headline", ""))
+        a["excerpt"] = clean_text(a.get("excerpt", ""))
+    return curated
 
 def build_cards(curated):
     cards_html = ""
-    for a in curated[:6]:
+    for a in curated:
         pillar = a.get("pillar", "Work")
         heat = a.get("heat", 60)
         headline = a.get("headline", "")
@@ -110,12 +147,14 @@ def build_cards(curated):
         url = a.get("url", "#")
         source = a.get("source", "")
         now = datetime.utcnow().strftime("%b %d, %Y")
+        promo = detect_promotion(headline, excerpt)
 
         cards_html += f"""
-      <div class="kf-card">
+      <div class="kf-card" data-pillar="{pillar}" data-promo="{promo}">
         <div class="kf-card-top">
           <div class="kf-card-tags">
             <span class="kf-tag">{pillar}</span>
+            <span class="kf-tag kf-tag-promo">{promo}</span>
             <span class="kf-tag kf-tag-heat">🔥 {heat}°</span>
           </div>
           <div class="kf-card-hed">{headline}</div>
@@ -150,8 +189,8 @@ def build_hero(curated):
         heatsub = "Warming Up"
     return {
         "kicker": f"Top Story · {top.get('pillar', 'Work')}",
-        "hed": top.get("headline", ""),
-        "deck": top.get("excerpt", ""),
+        "hed": clean_text(top.get("headline", "")),
+        "deck": clean_text(top.get("excerpt", "")),
         "url": top.get("url", "#"),
         "heat": str(heat),
         "heatsub": heatsub
@@ -159,9 +198,9 @@ def build_hero(curated):
 
 def build_ticker(curated):
     items = ""
-    for a in curated[:5]:
+    for a in curated[:6]:
         pillar = a.get("pillar", "Work")
-        hed = a.get("headline", "")[:60]
+        hed = clean_text(a.get("headline", ""))[:60]
         items += f'<span class="kf-ticker-item"><strong>{pillar}</strong> — {hed} &nbsp;·&nbsp; </span>\n      '
     return items * 2
 
@@ -171,8 +210,15 @@ def update_html(cards_html, hero, ticker_html, now_str):
 
     # Update article feed
     html = re.sub(
-        r'(<div class="kf-center" id="article-feed">)(.*?)(</div>\s*\n\s*</div>\s*\n\s*<!-- end 3col -->|</div>\s*\n\s*\n\s*  </div>\s*\n\s*\n\s*  <div class="kf-section)',
-        lambda m: m.group(1) + "\n" + cards_html + "\n    </div>\n\n  <div class=\"kf-section",
+        r'(<div class="kf-center" id="article-feed">)(.*?)(</div>)(\s*\n\s*\n\s*  </div>)',
+        lambda m: m.group(1) + "\n" + cards_html + "\n    " + m.group(3) + m.group(4),
+        html, flags=re.DOTALL, count=1
+    )
+
+    # Update hero kicker
+    html = re.sub(
+        r'(<div class="kf-hero-kicker">)(.*?)(</div>)',
+        lambda m: m.group(1) + hero["kicker"] + m.group(3),
         html, flags=re.DOTALL, count=1
     )
 
@@ -187,13 +233,6 @@ def update_html(cards_html, hero, ticker_html, now_str):
     html = re.sub(
         r'(<div class="kf-hero-deck"[^>]*>)(.*?)(</div>)',
         lambda m: m.group(1) + hero["deck"] + m.group(3),
-        html, flags=re.DOTALL, count=1
-    )
-
-    # Update hero kicker
-    html = re.sub(
-        r'(<div class="kf-hero-kicker">)(.*?)(</div>)',
-        lambda m: m.group(1) + hero["kicker"] + m.group(3),
         html, flags=re.DOTALL, count=1
     )
 
@@ -218,10 +257,10 @@ def update_html(cards_html, hero, ticker_html, now_str):
         html, flags=re.DOTALL, count=1
     )
 
-    # Update last updated timestamp
+    # Update last updated — replace the entire meta line content
     html = re.sub(
-        r'(kayfabeheat\.com · Last updated: )([^<"\']*)',
-        f"\\g<1>{now_str}",
+        r'kayfabeheat\.com · Last updated:[^<"\']*',
+        f"kayfabeheat.com · Last updated: {now_str}",
         html
     )
 
