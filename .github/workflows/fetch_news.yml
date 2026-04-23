@@ -1,0 +1,38 @@
+name: Fetch Wrestling News
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+    - cron: '0 12 * * *'
+    - cron: '0 18 * * *'
+    - cron: '0 23 * * *'
+  workflow_dispatch:
+
+jobs:
+  fetch-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests anthropic
+
+      - name: Run news fetch script
+        env:
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+          ANTHROPIC_KEY: ${{ secrets.ANTHROPIC_KEY }}
+        run: python fetch_news.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "KayfabeHeat Bot"
+          git config user.email "info@kayfabeheat.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "Auto: news update $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
