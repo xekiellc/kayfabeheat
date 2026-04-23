@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KayfabeHeat — Work · Shoot · Heat</title>
+<meta name="description" content="Pro wrestling news, results, and reaction. Work. Shoot. Heat. Updated 4x daily." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@900&family=Squada+One&family=Special+Elite&family=Permanent+Marker&family=Russo+One&display=swap" rel="stylesheet" />
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #1A0000;
+  --yellow: #F7E020;
+  --pink: #ED4A6A;
+  --red: #E8174A;
+  --border: 4px solid #1A0000;
+  --border-heavy: 6px solid #1A0000;
+}
+
+body {
+  background: #111;
+  display: flex;
+  justify-content: center;
+  padding: 20px 10px;
+  min-height: 100vh;
+}
+
+.kf {
+  font-family: 'Special Elite', cursive;
+  border: 8px solid var(--black);
+  border-radius: 3px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 960px;
+  background: linear-gradient(180deg,
+    #F7E020 0%, #F7E020 8%,
+    #F4B830 13%, #F08030 20%,
+    #ED4A6A 30%, #E8174A 38%,
+    #C4106A 52%, #9010A8 68%,
+    #5010D0 84%, #2A10E0 100%
+  );
+}
+
+/* ── MASTHEAD ── */
+.kf-masthead { padding: 10px 8px 6px; text-align: center; }
+
+.kf-title {
+  font-family: 'Passion One', sans-serif;
+  font-weight: 900;
+  font-size: clamp(52px, 10vw, 96px);
+  line-height: 0.88;
+  color: var(--black);
+  letter-spacing: 2px;
+  display: block;
+  transform: scaleX(1.08);
+  transform-origin: center;
+}
+
+.kf-tagline {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 18px;
+  color: var(--black);
+  margin-top: 5px;
+  display: inline-block;
+  transform: rotate(-1deg);
+}
+
+.kf-meta-line {
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #1A000088;
+  margin-top: 3px;
+}
+
+.kf-divline { height: 5px; background: var(--black); margin: 6px 0; }
+.kf-divline-thin { height: 2px; background: #1A000044; margin: 4px 0; }
+
+/* ── NAV ── */
+.kf-nav {
+  display: flex;
+  flex-wrap: wrap;
+  background: #1A000077;
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+
+.kf-nav a {
+  flex: 1;
+  min-width: 70px;
+  text-align: center;
+  padding: 8px 4px;
+  font-family: 'Russo One', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: #F7E020bb;
+  border-right: 1px solid #1A000055;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.kf-nav a:last-child { border-right: none; }
+.kf-nav a.active { background: var(--black); color: var(--yellow); }
+.kf-nav a.hot { background: #E8174A55; color: var(--yellow); }
+.kf-nav a:hover { background: #1A000044; color: var(--yellow); }
+
+/* ── TICKER ── */
+.kf-ticker {
+  background: var(--black);
+  border-bottom: 3px solid var(--yellow);
+  padding: 7px 14px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.kf-ticker-label {
+  font-family: 'Russo One', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--yellow);
+  white-space: nowrap;
+  border-right: 2px solid #F7E02044;
+  padding-right: 12px;
+  text-transform: uppercase;
+}
+
+.kf-ticker-scroll {
+  display: flex;
+  gap: 28px;
+  animation: ticker 30s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.kf-ticker-item {
+  font-family: 'Special Elite', cursive;
+  font-size: 12px;
+  color: #F7E020aa;
+}
+
+.kf-ticker-item strong { color: var(--yellow); }
+
+/* ── HERO ── */
+.kf-hero {
+  background: #1A000088;
+  border-bottom: 5px solid var(--black);
+  padding: 24px 22px 20px;
+  position: relative;
+  min-height: 160px;
+}
+
+.kf-hero-kicker {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black);
+  font-family: 'Russo One', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  padding: 3px 10px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.kf-hero-hed {
+  font-family: 'Squada One', cursive;
+  font-size: clamp(28px, 5vw, 46px);
+  line-height: 1.0;
+  color: var(--yellow);
+  margin-bottom: 10px;
+  text-shadow: 3px 3px 0 var(--black);
+  max-width: 62%;
+}
+
+.kf-hero-deck {
+  font-family: 'Special Elite', cursive;
+  font-size: 13px;
+  color: #F7E020cc;
+  line-height: 1.5;
+  max-width: 58%;
+  margin-bottom: 16px;
+}
+
+.kf-hero-cta {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black);
+  font-family: 'Russo One', sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  padding: 8px 22px;
+  border: 3px solid var(--black);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.kf-hero-cta:hover { background: var(--black); color: var(--yellow); }
+
+.kf-heat-badge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  background: #1A000099;
+  border: 3px solid var(--yellow);
+  padding: 12px 16px;
+  text-align: center;
+}
+
+.kf-heat-badge-label {
+  font-family: 'Russo One', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--yellow);
+  display: block;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+
+.kf-heat-badge-num {
+  font-family: 'Passion One', sans-serif;
+  font-size: 48px;
+  color: var(--yellow);
+  line-height: 1;
+  display: block;
+}
+
+.kf-heat-badge-sub {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 12px;
+  color: #F7E02077;
+  display: block;
+}
+
+/* ── 3-COL BODY ── */
+.kf-3col {
+  display: grid;
+  grid-template-columns: 160px 1fr 178px;
+  border-bottom: 5px solid var(--black);
+}
+
+.kf-col-left { border-right: var(--border); }
+.kf-col-right { border-left: var(--border); }
+
+.kf-col-block {
+  border-bottom: 3px solid var(--black);
+  padding: 12px;
+  background: #1A000022;
+}
+
+.kf-col-block:last-child { border-bottom: none; }
+
+.kf-col-head {
+  font-family: 'Squada One', cursive;
+  font-size: 16px;
+  color: var(--black);
+  border-bottom: 3px solid var(--black);
+  padding-bottom: 5px;
+  margin-bottom: 9px;
+  letter-spacing: 1px;
+}
+
+.kf-list-item {
+  padding: 5px 0;
+  border-bottom: 1px dashed #1A000033;
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  color: #1A0000cc;
+  line-height: 1.35;
+}
+
+.kf-list-item:last-child { border-bottom: none; }
+
+.kf-list-item strong {
+  display: block;
+  font-family: 'Russo One', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--black);
+  text-transform: uppercase;
+}
+
+.kf-trend-item {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 4px 0;
+  border-bottom: 1px dashed #1A000033;
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  color: #1A0000cc;
+}
+
+.kf-trend-item:last-child { border-bottom: none; }
+
+.kf-trend-num {
+  font-family: 'Passion One', sans-serif;
+  font-size: 22px;
+  color: #1A000033;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ── CENTER FEED ── */
+.kf-center { padding: 12px; }
+
+.kf-card {
+  background: #1A000022;
+  border: 3px solid var(--black);
+  margin-bottom: 10px;
+}
+
+.kf-card:last-child { margin-bottom: 0; }
+
+.kf-card-top {
+  background: #1A000033;
+  padding: 11px 13px 9px;
+  border-bottom: 2px solid var(--black);
+}
+
+.kf-card-tags {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 7px;
+  flex-wrap: wrap;
+}
+
+.kf-tag {
+  font-family: 'Russo One', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  padding: 2px 7px;
+  background: var(--black);
+  color: var(--yellow);
+  text-transform: uppercase;
+}
+
+.kf-tag-heat {
+  background: var(--yellow);
+  color: var(--black);
+}
+
+.kf-card-hed {
+  font-family: 'Squada One', cursive;
+  font-size: 19px;
+  line-height: 1.05;
+  color: var(--black);
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+.kf-card-excerpt {
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  color: #1A0000bb;
+  line-height: 1.45;
+}
+
+.kf-card-bottom {
+  padding: 7px 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kf-card-meta {
+  font-family: 'Special Elite', cursive;
+  font-size: 10px;
+  color: #1A000055;
+}
+
+.kf-card-read {
+  font-family: 'Russo One', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--black);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* ── RIGHT SIDEBAR ── */
+.kf-poll-item { margin-bottom: 9px; }
+
+.kf-poll-label {
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  color: var(--black);
+  margin-bottom: 3px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.kf-poll-label span:last-child {
+  font-family: 'Passion One', sans-serif;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.kf-poll-track {
+  background: #1A000033;
+  height: 7px;
+  border: 1.5px solid var(--black);
+}
+
+.kf-poll-fill { height: 100%; background: var(--black); }
+
+.kf-take {
+  padding: 6px 0;
+  border-bottom: 2px dashed #1A000033;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 13px;
+  color: #1A0000cc;
+  line-height: 1.4;
+}
+
+.kf-take:last-child { border-bottom: none; }
+
+.kf-nl {
+  background: var(--black);
+  padding: 12px;
+  text-align: center;
+}
+
+.kf-nl-head {
+  font-family: 'Squada One', cursive;
+  font-size: 20px;
+  color: var(--yellow);
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+.kf-nl-sub {
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  color: #F7E02077;
+  margin-bottom: 10px;
+}
+
+.kf-nl-btn {
+  display: block;
+  background: var(--yellow);
+  color: var(--black);
+  font-family: 'Russo One', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.kf-nl-btn:hover { background: var(--pink); color: var(--yellow); }
+
+/* ── SECTION SHARED ── */
+.kf-section {
+  border-bottom: 5px solid var(--black);
+  padding: 16px 18px;
+}
+
+.kf-section-dark { background: #1A000044; }
+.kf-section-light { background: #1A000022; }
+
+.kf-section-head {
+  font-family: 'Squada One', cursive;
+  font-size: 26px;
+  color: var(--black);
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  border-bottom: 4px solid var(--black);
+  padding-bottom: 6px;
+}
+
+.kf-section-head-light { color: var(--yellow); border-color: var(--yellow); }
+
+/* ── MAJOR PROMOS ── */
+.kf-promo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.kf-promo-card {
+  background: var(--black);
+  border: 3px solid var(--black);
+  padding: 12px 8px;
+  text-align: center;
+}
+
+.kf-promo-name {
+  font-family: 'Passion One', sans-serif;
+  font-size: 24px;
+  color: var(--yellow);
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.kf-promo-sub {
+  font-family: 'Special Elite', cursive;
+  font-size: 9px;
+  color: #F7E02066;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.kf-promo-desc {
+  font-family: 'Squada One', cursive;
+  font-size: 11px;
+  color: var(--yellow);
+  display: block;
+  letter-spacing: 0.5px;
+}
+
+/* ── US INDIES ── */
+.kf-region { margin-bottom: 16px; }
+.kf-region:last-child { margin-bottom: 0; }
+
+.kf-region-label {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 14px;
+  color: #1A000077;
+  margin-bottom: 8px;
+  display: inline-block;
+  transform: rotate(-0.5deg);
+}
+
+.kf-indie-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+}
+
+.kf-indie-card {
+  background: #F7E02033;
+  border: 3px solid var(--black);
+  padding: 9px 10px;
+}
+
+.kf-indie-name {
+  font-family: 'Squada One', cursive;
+  font-size: 13px;
+  color: var(--black);
+  margin-bottom: 3px;
+  line-height: 1.15;
+  letter-spacing: 0.3px;
+}
+
+.kf-indie-loc {
+  font-family: 'Russo One', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #1A000066;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.kf-indie-next {
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  color: #1A0000aa;
+}
+
+.kf-indie-submit {
+  background: #1A000011;
+  border: 3px dashed #1A000044;
+  padding: 9px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kf-indie-submit a {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 12px;
+  color: #1A000055;
+  text-align: center;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+/* ── GLOBAL ── */
+.kf-global-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.kf-global-region {
+  background: #1A000055;
+  border: 3px solid var(--black);
+  padding: 11px 13px;
+}
+
+.kf-global-region-name {
+  font-family: 'Squada One', cursive;
+  font-size: 20px;
+  color: var(--yellow);
+  border-bottom: 2px solid #F7E02033;
+  padding-bottom: 5px;
+  margin-bottom: 9px;
+  letter-spacing: 1px;
+}
+
+.kf-global-promo {
+  font-family: 'Special Elite', cursive;
+  font-size: 12px;
+  color: #F7E020cc;
+  padding: 3px 0;
+  border-bottom: 1px dashed #F7E02022;
+  line-height: 1.35;
+}
+
+.kf-global-promo:last-child { border-bottom: none; }
+
+.kf-global-promo span {
+  font-family: 'Russo One', sans-serif;
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #F7E02044;
+  display: block;
+  text-transform: uppercase;
+}
+
+/* ── COMMUNITY ── */
+.kf-community {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 5px solid var(--black);
+}
+
+.kf-comm-left {
+  padding: 16px;
+  background: #1A000022;
+  border-right: var(--border);
+}
+
+.kf-comm-right {
+  padding: 16px;
+  background: #1A000044;
+}
+
+.kf-comm-head {
+  font-family: 'Squada One', cursive;
+  font-size: 18px;
+  color: var(--black);
+  border-bottom: 3px solid var(--black);
+  padding-bottom: 5px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.kf-fh-q {
+  font-family: 'Squada One', cursive;
+  font-size: 16px;
+  color: var(--black);
+  margin-bottom: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+}
+
+.kf-fh-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.kf-fh-btn {
+  padding: 10px 6px;
+  font-family: 'Passion One', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: 3px solid var(--black);
+  cursor: pointer;
+}
+
+.kf-face { background: var(--yellow); color: var(--black); }
+.kf-heel { background: var(--black); color: var(--yellow); }
+.kf-face:hover { background: var(--black); color: var(--yellow); }
+.kf-heel:hover { background: var(--yellow); color: var(--black); }
+
+.kf-index-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed #1A000033;
+}
+
+.kf-index-item:last-child { border-bottom: none; }
+
+.kf-index-name {
+  font-family: 'Special Elite', cursive;
+  font-size: 13px;
+  color: var(--black);
+}
+
+.kf-index-score {
+  font-family: 'Passion One', sans-serif;
+  font-size: 22px;
+  color: var(--black);
+  line-height: 1;
+}
+
+/* ── FOOTER ── */
+.kf-footer {
+  background: var(--black);
+  border-top: 5px solid var(--yellow);
+  padding: 10px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.kf-footer-logo {
+  font-family: 'Passion One', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--yellow);
+}
+
+.kf-footer-txt {
+  font-family: 'Special Elite', cursive;
+  font-size: 11px;
+  color: #F7E02077;
+}
+
+.kf-footer-links {
+  display: flex;
+  gap: 16px;
+}
+
+.kf-footer-links a {
+  font-family: 'Russo One', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #F7E02066;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.kf-footer-links a:hover { color: var(--yellow); }
+
+/* ── LAST UPDATED ── */
+#last-updated {
+  font-family: 'Special Elite', cursive;
+  font-size: 10px;
+  color: #1A000066;
+  text-align: center;
+  padding: 4px 0 2px;
+}
+</style>
+</head>
+
+<body>
+<div class="kf">
+
+  <!-- MASTHEAD -->
+  <div class="kf-masthead">
+    <span class="kf-title">KAYFABE HEAT</span>
+    <div class="kf-divline"></div>
+    <span class="kf-tagline">Work · Shoot · Heat</span>
+    <div class="kf-divline-thin"></div>
+    <div class="kf-meta-line" id="last-updated">kayfabeheat.com · Updated 4× Daily</div>
+    <div class="kf-divline" style="margin-top:6px;"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="kf-nav">
+    <a href="#" class="active">All</a>
+    <a href="#">Work</a>
+    <a href="#">Shoot</a>
+    <a href="#">Heat</a>
+    <a href="#">Major Promos</a>
+    <a href="#">US Indies</a>
+    <a href="#">Global</a>
+    <a href="#">Videos</a>
+    <a href="#">Podcasts</a>
+    <a href="submit.html" class="hot">Submit</a>
+  </nav>
+
+  <!-- TICKER -->
+  <div class="kf-ticker">
+    <div class="kf-ticker-label">Breaking</div>
+    <div class="kf-ticker-scroll" id="ticker">
+      <span class="kf-ticker-item"><strong>WWE RAW</strong> — CM Punk turns heel on Cody Rhodes &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>AEW</strong> — Tony Khan confirms All In card &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>NJPW</strong> — Dominion lineup finalized &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>TNA</strong> — Joe Hendry defends at Rebellion &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>GCW</strong> — Nick Gage returns at Jersey show &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>WWE RAW</strong> — CM Punk turns heel on Cody Rhodes &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>AEW</strong> — Tony Khan confirms All In card &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>NJPW</strong> — Dominion lineup finalized &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>TNA</strong> — Joe Hendry defends at Rebellion &nbsp;·&nbsp; </span>
+      <span class="kf-ticker-item"><strong>GCW</strong> — Nick Gage returns at Jersey show &nbsp;·&nbsp; </span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="kf-hero" id="hero">
+    <div class="kf-hero-kicker">Top Story · WWE · Shoot</div>
+    <div class="kf-hero-hed">Loading today's top story...</div>
+    <div class="kf-hero-deck">Pulling the latest from the wire. Check back in a moment.</div>
+    <a href="#" class="kf-hero-cta">Read Now →</a>
+    <div class="kf-heat-badge">
+      <span class="kf-heat-badge-label">Heat Level</span>
+      <span class="kf-heat-badge-num" id="hero-heat">--°</span>
+      <span class="kf-heat-badge-sub">Loading</span>
+    </div>
+  </div>
+
+  <!-- 3-COL -->
+  <div class="kf-3col">
+
+    <!-- LEFT -->
+    <div class="kf-col-left">
+      <div class="kf-col-block">
+        <div class="kf-col-head">Latest Results</div>
+        <div class="kf-list-item"><strong>WWE RAW</strong>Cody def. Uso via DQ — Punk interferes</div>
+        <div class="kf-list-item"><strong>AEW Dynamite</strong>Swerve retains; MJF attacks post-match</div>
+        <div class="kf-list-item"><strong>TNA iMPACT</strong>Hendry def. PCO in main event</div>
+        <div class="kf-list-item"><strong>NJPW Strong</strong>Finlay earns Dominion title shot</div>
+      </div>
+
+      <div class="kf-col-block">
+        <div class="kf-col-head">Trending</div>
+        <div class="kf-trend-item"><span class="kf-trend-num">1</span>CM Punk heel turn</div>
+        <div class="kf-trend-item"><span class="kf-trend-num">2</span>Sasha Banks return</div>
+        <div class="kf-trend-item"><span class="kf-trend-num">3</span>AEW All In leaks</div>
+        <div class="kf-trend-item"><span class="kf-trend-num">4</span>Dominion main event</div>
+        <div class="kf-trend-item"><span class="kf-trend-num">5</span>Hendry title push</div>
+      </div>
+
+      <div class="kf-col-block">
+        <div class="kf-col-head">Indy Shows</div>
+        <div class="kf-list-item"><strong>Fri · Cleveland OH</strong>OCW at the Agora</div>
+        <div class="kf-list-item"><strong>Sat · Chicago IL</strong>Freelance: Night of Champions</div>
+        <div class="kf-list-item"><strong>Sat · Dallas TX</strong>MLW: War Chamber 2026</div>
+        <div class="kf-list-item"><strong>Sun · Philadelphia PA</strong>GCW: Homecoming Night 2</div>
+      </div>
+    </div>
+
+    <!-- CENTER FEED -->
+    <div class="kf-center" id="article-feed">
+      <div class="kf-card">
+        <div class="kf-card-top">
+          <div class="kf-card-tags">
+            <span class="kf-tag">Shoot</span>
+            <span class="kf-tag">AEW</span>
+            <span class="kf-tag kf-tag-heat">🔥 84°</span>
+          </div>
+          <div class="kf-card-hed">AEW Backstage Tension Reaches Boiling Point Ahead Of All In</div>
+          <div class="kf-card-excerpt">Multiple roster members frustrated with booking decisions heading into the company's biggest show of the year. Creative meetings reportedly heated.</div>
+        </div>
+        <div class="kf-card-bottom">
+          <div class="kf-card-meta">KayfabeHeat · 1h ago</div>
+          <a href="#" class="kf-card-read">Read →</a>
+        </div>
+      </div>
+
+      <div class="kf-card">
+        <div class="kf-card-top">
+          <div class="kf-card-tags">
+            <span class="kf-tag">Work</span>
+            <span class="kf-tag">NJPW</span>
+            <span class="kf-tag kf-tag-heat">🔥 71°</span>
+          </div>
+          <div class="kf-card-hed">Dominion Card Is Shaping Up To Be The Best Show Of 2026</div>
+          <div class="kf-card-excerpt">Three title matches confirmed, fourth blockbuster bout expected by Friday. NJPW is cooking right now and the internet knows it.</div>
+        </div>
+        <div class="kf-card-bottom">
+          <div class="kf-card-meta">KayfabeHeat · 3h ago</div>
+          <a href="#" class="kf-card-read">Read →</a>
+        </div>
+      </div>
+
+      <div class="kf-card">
+        <div class="kf-card-top">
+          <div class="kf-card-tags">
+            <span class="kf-tag">Heat</span>
+            <span class="kf-tag">Fan Reaction</span>
+            <span class="kf-tag kf-tag-heat">🔥 63°</span>
+          </div>
+          <div class="kf-card-hed">The Crowd Killed The Finish Before The Bell Even Rang</div>
+          <div class="kf-card-excerpt">When the audience chants the wrong name, no in-ring work saves the angle. Last night was a masterclass in creative disconnect.</div>
+        </div>
+        <div class="kf-card-bottom">
+          <div class="kf-card-meta">KayfabeHeat · 5h ago</div>
+          <a href="#" class="kf-card-read">Read →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="kf-col-right">
+      <div class="kf-col-block">
+        <div class="kf-col-head">Face or Heel?</div>
+        <div style="font-family:'Special Elite',cursive;font-size:12px;color:#1A0000;margin-bottom:10px;line-height:1.4;">Was Punk's attack on Cody a heel move?</div>
+        <div class="kf-poll-item">
+          <div class="kf-poll-label"><span>Heel — no question</span><span>74%</span></div>
+          <div class="kf-poll-track"><div class="kf-poll-fill" style="width:74%"></div></div>
+        </div>
+        <div class="kf-poll-item">
+          <div class="kf-poll-label"><span>Still a face to me</span><span>26%</span></div>
+          <div class="kf-poll-track"><div class="kf-poll-fill" style="width:26%"></div></div>
+        </div>
+        <div style="font-family:'Special Elite',cursive;font-size:10px;color:#1A000055;margin-top:6px;">2,847 votes</div>
+      </div>
+
+      <div class="kf-col-block">
+        <div class="kf-col-head">Heat Meter</div>
+        <div class="kf-poll-item"><div class="kf-poll-label"><span>Cody vs Punk</span><span>97°</span></div><div class="kf-poll-track"><div class="kf-poll-fill" style="width:97%"></div></div></div>
+        <div class="kf-poll-item"><div class="kf-poll-label"><span>AEW Drama</span><span>84°</span></div><div class="kf-poll-track"><div class="kf-poll-fill" style="width:84%"></div></div></div>
+        <div class="kf-poll-item"><div class="kf-poll-label"><span>NXT Titles</span><span>71°</span></div><div class="kf-poll-track"><div class="kf-poll-fill" style="width:71%"></div></div></div>
+        <div class="kf-poll-item"><div class="kf-poll-label"><span>Hendry Push</span><span>63°</span></div><div class="kf-poll-track"><div class="kf-poll-fill" style="width:63%"></div></div></div>
+      </div>
+
+      <div class="kf-col-block">
+        <div class="kf-col-head">Hot Takes</div>
+        <div class="kf-take">Swerve should have dropped the belt three months ago.</div>
+        <div class="kf-take">NJPW is the best wrestling on earth right now. Not close.</div>
+        <div class="kf-take">The Hendry situation is creative malpractice.</div>
+      </div>
+
+      <div class="kf-col-block" style="border-bottom:none;padding:0;">
+        <div class="kf-nl">
+          <div class="kf-nl-head">Get The Heat</div>
+          <div class="kf-nl-sub">Daily digest. No fluff.</div>
+          <a href="#" class="kf-nl-btn">Subscribe Free →</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end 3col -->
+
+  <!-- MAJOR PROMOS -->
+  <div class="kf-section kf-section-dark">
+    <div class="kf-section-head">Major Promotions</div>
+    <div class="kf-promo-grid">
+      <div class="kf-promo-card"><div class="kf-promo-name">WWE</div><div class="kf-promo-sub">US · Global</div><div class="kf-promo-desc">RAW + SmackDown</div></div>
+      <div class="kf-promo-card"><div class="kf-promo-name">AEW</div><div class="kf-promo-sub">US · Global</div><div class="kf-promo-desc">Dynamite + Collision</div></div>
+      <div class="kf-promo-card"><div class="kf-promo-name">TNA</div><div class="kf-promo-sub">US</div><div class="kf-promo-desc">iMPACT Weekly</div></div>
+      <div class="kf-promo-card"><div class="kf-promo-name">ROH</div><div class="kf-promo-sub">US</div><div class="kf-promo-desc">ROH TV</div></div>
+      <div class="kf-promo-card"><div class="kf-promo-name">NWA</div><div class="kf-promo-sub">US</div><div class="kf-promo-desc">Powerrr</div></div>
+    </div>
+  </div>
+
+  <!-- US INDIES -->
+  <div class="kf-section kf-section-light">
+    <div class="kf-section-head">US Indies</div>
+
+    <div class="kf-region">
+      <div class="kf-region-label">Midwest · Ohio</div>
+      <div class="kf-indie-grid">
+        <div class="kf-indie-card"><div class="kf-indie-name">Ohio Championship Wrestling</div><div class="kf-indie-loc">Cleveland, OH</div><div class="kf-indie-next">Next: May 10</div></div>
+        <div class="kf-indie-card"><div class="kf-indie-name">NEO Pro Wrestling</div><div class="kf-indie-loc">Northfield, OH</div><div class="kf-indie-next">Next: May 17</div></div>
+        <div class="kf-indie-card"><div class="kf-indie-name">WAR Wrestling</div><div class="kf-indie-loc">NE Ohio</div><div class="kf-indie-next">Next: TBA</div></div>
+        <div class="kf-indie-card"><div class="kf-indie-name">Mega Championship Wrestling</div><div class="kf-indie-loc">Ohio</div><div class="kf-indie-next">Next: May 24</div></div>
+      </div>
+    </div>
+
+    <div class="kf-region">
+      <div class="kf-region-label">Northeast · NY / NJ / New England</div>
+      <div class="kf-indie-grid">
+        <div class="kf-indie-card"><div class="kf-indie-name">Game Changer Wrestling</div><div class="kf-indie-loc">Various, NJ</div><div class="kf-indie-next">Next: May 2</div></div>
+        <div class="kf-indie-card"><div class="kf-indie-name">Beyond Wrestling</div><div class="kf-indie-loc">Providence, RI</div><div class="kf-indie-next">Next: May 9</div></div>
+        <div class="kf-indie-card"><div class="kf-indie-name">MLW</div><div class="kf-indie-loc">Various</div><div class="kf-indie-next">Next: May 3</div></div>
+        <div class="kf-indie-submit"><a href="submit.html">Submit Your<br>Promotion →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL -->
+  <div class="kf-section kf-section-dark">
+    <div class="kf-section-head kf-section-head-light">Global Wrestling</div>
+    <div class="kf-global-grid">
+      <div class="kf-global-region">
+        <div class="kf-global-region-name">Japan</div>
+        <div class="kf-global-promo">NJPW <span>New Japan Pro-Wrestling</span></div>
+        <div class="kf-global-promo">Stardom <span>Women's Wrestling</span></div>
+        <div class="kf-global-promo">NOAH <span>Pro Wrestling NOAH</span></div>
+        <div class="kf-global-promo">DDT <span>DDT Pro-Wrestling</span></div>
+      </div>
+      <div class="kf-global-region">
+        <div class="kf-global-region-name">Mexico</div>
+        <div class="kf-global-promo">CMLL <span>Consejo Mundial de Lucha Libre</span></div>
+        <div class="kf-global-promo">AAA <span>Lucha Libre AAA</span></div>
+        <div class="kf-global-promo">LLE <span>Lucha Libre Elite</span></div>
+      </div>
+      <div class="kf-global-region">
+        <div class="kf-global-region-name">UK / Europe</div>
+        <div class="kf-global-promo">Progress <span>Progress Wrestling</span></div>
+        <div class="kf-global-promo">RevPro <span>Revolution Pro Wrestling</span></div>
+        <div class="kf-global-promo">wXw <span>Westside Xtreme Wrestling</span></div>
+        <div class="kf-global-promo">ICW <span>Insane Championship Wrestling</span></div>
+      </div>
+      <div class="kf-global-region">
+        <div class="kf-global-region-name">Rest of World</div>
+        <div class="kf-global-promo">MCW <span>Melbourne City Wrestling · AUS</span></div>
+        <div class="kf-global-promo">PWA <span>Pro Wrestling Australia</span></div>
+        <div class="kf-global-promo">Border City <span>Border City Wrestling · CAN</span></div>
+        <div class="kf-global-promo">OVW <span>Ohio Valley Wrestling · US/KY</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMUNITY -->
+  <div class="kf-community">
+    <div class="kf-comm-left">
+      <div class="kf-comm-head">Face or Heel? Vote Now</div>
+      <div class="kf-fh-q">Was Swerve's title retention the right call?</div>
+      <div class="kf-fh-btns">
+        <div class="kf-fh-btn kf-face">Face Move</div>
+        <div class="kf-fh-btn kf-heel">Heel Move</div>
+      </div>
+    </div>
+    <div class="kf-comm-right">
+      <div class="kf-comm-head">Heat Index</div>
+      <div class="kf-index-item"><span class="kf-index-name">CM Punk</span><span class="kf-index-score">98 🔥</span></div>
+      <div class="kf-index-item"><span class="kf-index-name">Cody Rhodes</span><span class="kf-index-score">94 🔥</span></div>
+      <div class="kf-index-item"><span class="kf-index-name">Swerve Strickland</span><span class="kf-index-score">88 🔥</span></div>
+      <div class="kf-index-item"><span class="kf-index-name">Joe Hendry</span><span class="kf-index-score">82 🔥</span></div>
+      <div class="kf-index-item"><span class="kf-index-name">Will Ospreay</span><span class="kf-index-score">79 🔥</span></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="kf-footer">
+    <div class="kf-footer-logo">KAYFABEHEAT.COM</div>
+    <div class="kf-footer-txt">Work · Shoot · Heat · Updated 4× Daily</div>
+    <div class="kf-footer-links">
+      <a href="#">About</a>
+      <a href="submit.html">Submit</a>
+      <a href="#">Podcast</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+</div><!-- end .kf -->
+
+<script>
+  // Set last updated timestamp
+  const lu = document.getElementById('last-updated');
+  if (lu) {
+    const now = new Date();
+    lu.textContent = 'kayfabeheat.com · Last updated: ' + now.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+  }
+</script>
+
+</body>
+</html>
