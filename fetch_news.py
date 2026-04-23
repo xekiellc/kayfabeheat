@@ -18,13 +18,6 @@ QUERIES = [
     "professional wrestling news",
 ]
 
-EXCLUDE_KEYWORDS = [
-    "suicide", "overdose", "fentanyl", "addiction", "rehab",
-    "death", "died", "dead", "funeral", "murder", "rape",
-    "abuse", "assault", "domestic", "cancer", "hospitalized",
-    "depression", "mental health crisis", "self harm",
-]
-
 def fetch_articles():
     articles = []
     seen_titles = set()
@@ -46,10 +39,6 @@ def fetch_articles():
                 if not title or "[Removed]" in title:
                     continue
                 if title in seen_titles:
-                    continue
-                combined = (title + " " + description).lower()
-                if any(kw in combined for kw in EXCLUDE_KEYWORDS):
-                    print(f"Filtered out sensitive article: {title[:60]}")
                     continue
                 seen_titles.add(title)
                 articles.append({
@@ -74,24 +63,15 @@ def curate_with_claude(articles):
 - Shoot: backstage news, contracts, creative decisions, business, ratings
 - Heat: fan reaction, crowd response, social media buzz, viral moments
 
-IMPORTANT CONTENT RULES — you must never select or write about:
-- Suicide, self-harm, overdose, addiction, or mental health crises
-- Death, murder, or serious criminal acts
-- Sexual assault or domestic abuse
-- Serious medical emergencies or terminal illness
-- Any story that is more about personal tragedy than wrestling
-
-Only select stories that are about the wrestling business, in-ring action, or fan culture.
-
 Here are today's wrestling news articles:
 
 {articles_text}
 
-Select the 6 best articles that follow the content rules above. For each write:
+Select the 6 best, most interesting articles. For each write:
 - A punchy bold headline in dirt sheet style (max 12 words)
 - A 1-sentence excerpt (max 25 words, no fluff)
 - Pillar: Work, Shoot, or Heat
-- Heat score 1-99 (how hot/controversial the story is in wrestling terms)
+- Heat score 1-99 (how hot or significant this story is in wrestling)
 - The original URL
 - The source name
 
@@ -217,12 +197,14 @@ def update_html(cards_html, hero, ticker_html, now_str):
         html, flags=re.DOTALL, count=1
     )
 
-    # Update heat badge
+    # Update heat badge number
     html = re.sub(
         r'(<span class="kf-heat-badge-num"[^>]*>)(.*?)(</span>)',
         lambda m: m.group(1) + hero["heat"] + "°" + m.group(3),
         html, flags=re.DOTALL, count=1
     )
+
+    # Update heat badge sub
     html = re.sub(
         r'(<span class="kf-heat-badge-sub"[^>]*>)(.*?)(</span>)',
         lambda m: m.group(1) + hero["heatsub"] + m.group(3),
