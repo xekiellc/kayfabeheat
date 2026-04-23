@@ -1,8 +1,3 @@
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
 [build]
   publish = "."
 
@@ -13,3 +8,18 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "/submit.html"
+  to = "/submit.html"
+  status = 200
+
+[[redirects]]
+  from = "/submit-success.html"
+  to = "/submit-success.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
