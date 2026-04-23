@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>KayfabeHeat — Work · Shoot · Heat</title>
 <meta name="description" content="Pro wrestling news, results, and reaction. Work. Shoot. Heat. Updated 4x daily." />
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PG6F1WQ81C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PG6F1WQ81C');
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@900&family=Squada+One&family=Special+Elite&family=Permanent+Marker&family=Russo+One&display=swap" rel="stylesheet" />
@@ -749,22 +759,12 @@ body {
 }
 
 .kf-footer-links a:hover { color: var(--yellow); }
-
-/* ── LAST UPDATED ── */
-#last-updated {
-  font-family: 'Special Elite', cursive;
-  font-size: 10px;
-  color: #1A000066;
-  text-align: center;
-  padding: 4px 0 2px;
-}
 </style>
 </head>
 
 <body>
 <div class="kf">
 
-  <!-- MASTHEAD -->
   <div class="kf-masthead">
     <span class="kf-title">KAYFABE HEAT</span>
     <div class="kf-divline"></div>
@@ -774,9 +774,8 @@ body {
     <div class="kf-divline" style="margin-top:6px;"></div>
   </div>
 
-  <!-- NAV -->
   <nav class="kf-nav">
-    <a href="#" class="active">All</a>
+    <a href="/" class="active">All</a>
     <a href="#">Work</a>
     <a href="#">Shoot</a>
     <a href="#">Heat</a>
@@ -788,10 +787,9 @@ body {
     <a href="submit.html" class="hot">Submit</a>
   </nav>
 
-  <!-- TICKER -->
   <div class="kf-ticker">
     <div class="kf-ticker-label">Breaking</div>
-    <div class="kf-ticker-scroll" id="ticker">
+    <div class="kf-ticker-scroll">
       <span class="kf-ticker-item"><strong>WWE RAW</strong> — CM Punk turns heel on Cody Rhodes &nbsp;·&nbsp; </span>
       <span class="kf-ticker-item"><strong>AEW</strong> — Tony Khan confirms All In card &nbsp;·&nbsp; </span>
       <span class="kf-ticker-item"><strong>NJPW</strong> — Dominion lineup finalized &nbsp;·&nbsp; </span>
@@ -805,23 +803,19 @@ body {
     </div>
   </div>
 
-  <!-- HERO -->
-  <div class="kf-hero" id="hero">
+  <div class="kf-hero">
     <div class="kf-hero-kicker">Top Story · WWE · Shoot</div>
-    <div class="kf-hero-hed">Loading today's top story...</div>
-    <div class="kf-hero-deck">Pulling the latest from the wire. Check back in a moment.</div>
+    <div class="kf-hero-hed" id="hero-hed">Cody's Title Reign Is Already On Borrowed Time</div>
+    <div class="kf-hero-deck" id="hero-deck">Sources close to creative say the plan changed last week — and the locker room knows before the fans do.</div>
     <a href="#" class="kf-hero-cta">Read Now →</a>
     <div class="kf-heat-badge">
       <span class="kf-heat-badge-label">Heat Level</span>
-      <span class="kf-heat-badge-num" id="hero-heat">--°</span>
-      <span class="kf-heat-badge-sub">Loading</span>
+      <span class="kf-heat-badge-num">97°</span>
+      <span class="kf-heat-badge-sub">Scorching</span>
     </div>
   </div>
 
-  <!-- 3-COL -->
   <div class="kf-3col">
-
-    <!-- LEFT -->
     <div class="kf-col-left">
       <div class="kf-col-block">
         <div class="kf-col-head">Latest Results</div>
@@ -830,7 +824,6 @@ body {
         <div class="kf-list-item"><strong>TNA iMPACT</strong>Hendry def. PCO in main event</div>
         <div class="kf-list-item"><strong>NJPW Strong</strong>Finlay earns Dominion title shot</div>
       </div>
-
       <div class="kf-col-block">
         <div class="kf-col-head">Trending</div>
         <div class="kf-trend-item"><span class="kf-trend-num">1</span>CM Punk heel turn</div>
@@ -839,7 +832,6 @@ body {
         <div class="kf-trend-item"><span class="kf-trend-num">4</span>Dominion main event</div>
         <div class="kf-trend-item"><span class="kf-trend-num">5</span>Hendry title push</div>
       </div>
-
       <div class="kf-col-block">
         <div class="kf-col-head">Indy Shows</div>
         <div class="kf-list-item"><strong>Fri · Cleveland OH</strong>OCW at the Agora</div>
@@ -849,7 +841,6 @@ body {
       </div>
     </div>
 
-    <!-- CENTER FEED -->
     <div class="kf-center" id="article-feed">
       <div class="kf-card">
         <div class="kf-card-top">
@@ -859,14 +850,13 @@ body {
             <span class="kf-tag kf-tag-heat">🔥 84°</span>
           </div>
           <div class="kf-card-hed">AEW Backstage Tension Reaches Boiling Point Ahead Of All In</div>
-          <div class="kf-card-excerpt">Multiple roster members frustrated with booking decisions heading into the company's biggest show of the year. Creative meetings reportedly heated.</div>
+          <div class="kf-card-excerpt">Multiple roster members frustrated with booking decisions heading into the company's biggest show of the year.</div>
         </div>
         <div class="kf-card-bottom">
           <div class="kf-card-meta">KayfabeHeat · 1h ago</div>
           <a href="#" class="kf-card-read">Read →</a>
         </div>
       </div>
-
       <div class="kf-card">
         <div class="kf-card-top">
           <div class="kf-card-tags">
@@ -875,14 +865,13 @@ body {
             <span class="kf-tag kf-tag-heat">🔥 71°</span>
           </div>
           <div class="kf-card-hed">Dominion Card Is Shaping Up To Be The Best Show Of 2026</div>
-          <div class="kf-card-excerpt">Three title matches confirmed, fourth blockbuster bout expected by Friday. NJPW is cooking right now and the internet knows it.</div>
+          <div class="kf-card-excerpt">Three title matches confirmed, fourth blockbuster bout expected by Friday. NJPW is cooking right now.</div>
         </div>
         <div class="kf-card-bottom">
           <div class="kf-card-meta">KayfabeHeat · 3h ago</div>
           <a href="#" class="kf-card-read">Read →</a>
         </div>
       </div>
-
       <div class="kf-card">
         <div class="kf-card-top">
           <div class="kf-card-tags">
@@ -891,7 +880,7 @@ body {
             <span class="kf-tag kf-tag-heat">🔥 63°</span>
           </div>
           <div class="kf-card-hed">The Crowd Killed The Finish Before The Bell Even Rang</div>
-          <div class="kf-card-excerpt">When the audience chants the wrong name, no in-ring work saves the angle. Last night was a masterclass in creative disconnect.</div>
+          <div class="kf-card-excerpt">When the audience chants the wrong name, no in-ring work saves the angle.</div>
         </div>
         <div class="kf-card-bottom">
           <div class="kf-card-meta">KayfabeHeat · 5h ago</div>
@@ -900,7 +889,6 @@ body {
       </div>
     </div>
 
-    <!-- RIGHT -->
     <div class="kf-col-right">
       <div class="kf-col-block">
         <div class="kf-col-head">Face or Heel?</div>
@@ -915,7 +903,6 @@ body {
         </div>
         <div style="font-family:'Special Elite',cursive;font-size:10px;color:#1A000055;margin-top:6px;">2,847 votes</div>
       </div>
-
       <div class="kf-col-block">
         <div class="kf-col-head">Heat Meter</div>
         <div class="kf-poll-item"><div class="kf-poll-label"><span>Cody vs Punk</span><span>97°</span></div><div class="kf-poll-track"><div class="kf-poll-fill" style="width:97%"></div></div></div>
@@ -923,14 +910,12 @@ body {
         <div class="kf-poll-item"><div class="kf-poll-label"><span>NXT Titles</span><span>71°</span></div><div class="kf-poll-track"><div class="kf-poll-fill" style="width:71%"></div></div></div>
         <div class="kf-poll-item"><div class="kf-poll-label"><span>Hendry Push</span><span>63°</span></div><div class="kf-poll-track"><div class="kf-poll-fill" style="width:63%"></div></div></div>
       </div>
-
       <div class="kf-col-block">
         <div class="kf-col-head">Hot Takes</div>
         <div class="kf-take">Swerve should have dropped the belt three months ago.</div>
         <div class="kf-take">NJPW is the best wrestling on earth right now. Not close.</div>
         <div class="kf-take">The Hendry situation is creative malpractice.</div>
       </div>
-
       <div class="kf-col-block" style="border-bottom:none;padding:0;">
         <div class="kf-nl">
           <div class="kf-nl-head">Get The Heat</div>
@@ -939,10 +924,8 @@ body {
         </div>
       </div>
     </div>
+  </div>
 
-  </div><!-- end 3col -->
-
-  <!-- MAJOR PROMOS -->
   <div class="kf-section kf-section-dark">
     <div class="kf-section-head">Major Promotions</div>
     <div class="kf-promo-grid">
@@ -954,10 +937,8 @@ body {
     </div>
   </div>
 
-  <!-- US INDIES -->
   <div class="kf-section kf-section-light">
     <div class="kf-section-head">US Indies</div>
-
     <div class="kf-region">
       <div class="kf-region-label">Midwest · Ohio</div>
       <div class="kf-indie-grid">
@@ -967,7 +948,6 @@ body {
         <div class="kf-indie-card"><div class="kf-indie-name">Mega Championship Wrestling</div><div class="kf-indie-loc">Ohio</div><div class="kf-indie-next">Next: May 24</div></div>
       </div>
     </div>
-
     <div class="kf-region">
       <div class="kf-region-label">Northeast · NY / NJ / New England</div>
       <div class="kf-indie-grid">
@@ -979,7 +959,6 @@ body {
     </div>
   </div>
 
-  <!-- GLOBAL -->
   <div class="kf-section kf-section-dark">
     <div class="kf-section-head kf-section-head-light">Global Wrestling</div>
     <div class="kf-global-grid">
@@ -1013,7 +992,6 @@ body {
     </div>
   </div>
 
-  <!-- COMMUNITY -->
   <div class="kf-community">
     <div class="kf-comm-left">
       <div class="kf-comm-head">Face or Heel? Vote Now</div>
@@ -1033,7 +1011,6 @@ body {
     </div>
   </div>
 
-  <!-- FOOTER -->
   <div class="kf-footer">
     <div class="kf-footer-logo">KAYFABEHEAT.COM</div>
     <div class="kf-footer-txt">Work · Shoot · Heat · Updated 4× Daily</div>
@@ -1045,10 +1022,9 @@ body {
     </div>
   </div>
 
-</div><!-- end .kf -->
+</div>
 
 <script>
-  // Set last updated timestamp
   const lu = document.getElementById('last-updated');
   if (lu) {
     const now = new Date();
