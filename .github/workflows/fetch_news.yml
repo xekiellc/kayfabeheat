@@ -36,3 +36,15 @@ jobs:
           git add index.html
           git diff --staged --quiet || git commit -m "Auto: news update $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
+
+      - name: Post to Voxxee
+        run: |
+          curl -s -X POST https://xenchee.netlify.app/.netlify/functions/pipeline-post \
+            -H "Content-Type: application/json" \
+            -H "x-pipeline-secret: ${{ secrets.PIPELINE_SECRET }}" \
+            -d '{
+              "slug": "kayfabe-heat",
+              "title": "🤼 Kayfabe Heat — Latest Pro Wrestling News",
+              "summary": "Fresh pro wrestling news, results, and rumors from the squared circle.",
+              "url": "https://kayfabeheat.com"
+            }'
