@@ -123,7 +123,7 @@ Respond ONLY as a valid JSON array:
 No preamble, no markdown, just the JSON array."""
 
     message = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=3000,
         messages=[{"role": "user", "content": prompt}]
     )
