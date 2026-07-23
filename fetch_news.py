@@ -236,6 +236,13 @@ def update_html(cards_html, hero, ticker_html, now_str):
         html, flags=re.DOTALL, count=1
     )
 
+    # Update hero CTA href
+    html = re.sub(
+        r'(<a[^>]*id="hero-cta"[^>]*href=")[^"]*(")',
+        lambda m: m.group(1) + hero["url"] + m.group(2),
+        html, count=1
+    )
+
     # Update heat badge number
     html = re.sub(
         r'(<span class="kf-heat-badge-num"[^>]*>)(.*?)(</span>)',
@@ -257,7 +264,7 @@ def update_html(cards_html, hero, ticker_html, now_str):
         html, flags=re.DOTALL, count=1
     )
 
-    # Update last updated — replace the entire meta line content
+    # Update last updated
     html = re.sub(
         r'kayfabeheat\.com · Last updated:[^<"\']*',
         f"kayfabeheat.com · Last updated: {now_str}",
