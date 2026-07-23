@@ -517,7 +517,15 @@ body {
 }
 
 .kf-indie-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
-.kf-indie-card { background: #F7E02033; border: 3px solid var(--black); padding: 9px 10px; }
+.kf-indie-card {
+  background: #F7E02033;
+  border: 3px solid var(--black);
+  padding: 9px 10px;
+  text-decoration: none;
+  display: block;
+  transition: background 0.15s;
+}
+.kf-indie-card:hover { background: #F7E02066; }
 .kf-indie-name { font-family: 'Squada One', cursive; font-size: 13px; color: var(--black); margin-bottom: 3px; line-height: 1.15; }
 .kf-indie-loc { font-family: 'Russo One', sans-serif; font-size: 9px; letter-spacing: 2px; color: #1A000066; margin-bottom: 4px; text-transform: uppercase; }
 .kf-indie-next { font-family: 'Special Elite', cursive; font-size: 11px; color: #1A0000aa; }
@@ -638,7 +646,6 @@ body {
       <span class="kf-ticker-item"><strong>Shoot</strong> — Sheamus Should Skip AEW and Head Straight to NJPW &nbsp;·&nbsp; </span>
       <span class="kf-ticker-item"><strong>Shoot</strong> — Trick Williams Credits Heyman and Lesnar for His Rapid Rise &nbsp;·&nbsp; </span>
       <span class="kf-ticker-item"><strong>Work</strong> — Tony D Angelo Defends NXT Title Again in Street Fight Rematc &nbsp;·&nbsp; </span>
-      
     </div>
   </div>
 
@@ -646,7 +653,7 @@ body {
     <div class="kf-hero-kicker">Top Story · Shoot</div>
     <div class="kf-hero-hed" id="hero-hed">Bayley Not Signed, AEW Circling As WWE Contract Expires</div>
     <div class="kf-hero-deck" id="hero-deck">Sean Ross Sapp confirms reports of Bayley signing a new WWE deal are false, with AEW rumored to have interest.</div>
-    <a href="#" class="kf-hero-cta" id="hero-cta">Read Now →</a>
+    <a href="#" id="hero-cta" class="kf-hero-cta" target="_blank" rel="noopener">Read Now →</a>
     <div class="kf-heat-badge">
       <span class="kf-heat-badge-label">Heat Level</span>
       <span class="kf-heat-badge-num" id="hero-heat">92°</span>
@@ -708,36 +715,6 @@ body {
           <a href="#" class="kf-card-read">Read →</a>
         </div>
       </div>
-      <div class="kf-card" data-pillar="Work" data-promo="NJPW">
-        <div class="kf-card-top">
-          <div class="kf-card-tags">
-            <span class="kf-tag">Work</span>
-            <span class="kf-tag kf-tag-promo">NJPW</span>
-            <span class="kf-tag kf-tag-heat">🔥 71°</span>
-          </div>
-          <div class="kf-card-hed">Dominion Card Is Shaping Up To Be The Best Show Of 2026</div>
-          <div class="kf-card-excerpt">Three title matches confirmed, fourth blockbuster bout expected by Friday.</div>
-        </div>
-        <div class="kf-card-bottom">
-          <div class="kf-card-meta">KayfabeHeat · Today</div>
-          <a href="#" class="kf-card-read">Read →</a>
-        </div>
-      </div>
-      <div class="kf-card" data-pillar="Heat" data-promo="WWE">
-        <div class="kf-card-top">
-          <div class="kf-card-tags">
-            <span class="kf-tag">Heat</span>
-            <span class="kf-tag kf-tag-promo">WWE</span>
-            <span class="kf-tag kf-tag-heat">🔥 63°</span>
-          </div>
-          <div class="kf-card-hed">The Crowd Killed The Finish Before The Bell Even Rang</div>
-          <div class="kf-card-excerpt">When the audience chants the wrong name, no in-ring work saves the angle.</div>
-        </div>
-        <div class="kf-card-bottom">
-          <div class="kf-card-meta">KayfabeHeat · Today</div>
-          <a href="#" class="kf-card-read">Read →</a>
-        </div>
-      </div>
       <div class="kf-no-results" id="no-results">No stories found for this filter.</div>
     </div>
 
@@ -787,26 +764,62 @@ body {
     <div class="kf-region">
       <div class="kf-region-label">Midwest · Ohio</div>
       <div class="kf-indie-grid">
-        <div class="kf-indie-card"><div class="kf-indie-name">Ohio Championship Wrestling</div><div class="kf-indie-loc">Cleveland, OH</div><div class="kf-indie-next">Next: May 10</div></div>
-        <div class="kf-indie-card"><div class="kf-indie-name">NEO Pro Wrestling</div><div class="kf-indie-loc">Northfield, OH</div><div class="kf-indie-next">Next: May 17</div></div>
-        <div class="kf-indie-card"><div class="kf-indie-name">WAR Wrestling</div><div class="kf-indie-loc">NE Ohio</div><div class="kf-indie-next">Next: TBA</div></div>
-        <div class="kf-indie-card"><div class="kf-indie-name">Mega Championship Wrestling</div><div class="kf-indie-loc">Ohio</div><div class="kf-indie-next">Next: May 24</div></div>
+        <a href="https://www.ohiochampionshipwrestling.com/events" target="_blank" rel="noopener" class="kf-indie-card">
+          <div class="kf-indie-name">Ohio Championship Wrestling</div>
+          <div class="kf-indie-loc">Cleveland, OH</div>
+          <div class="kf-indie-next">See Schedule →</div>
+        </a>
+        <a href="https://www.neoprowrestling.com/events" target="_blank" rel="noopener" class="kf-indie-card">
+          <div class="kf-indie-name">NEO Pro Wrestling</div>
+          <div class="kf-indie-loc">Northfield, OH</div>
+          <div class="kf-indie-next">See Schedule →</div>
+        </a>
+        <a href="https://www.warwrestling.com" target="_blank" rel="noopener" class="kf-indie-card">
+          <div class="kf-indie-name">WAR Wrestling</div>
+          <div class="kf-indie-loc">NE Ohio</div>
+          <div class="kf-indie-next">See Schedule →</div>
+        </a>
+        <a href="https://www.megachampionshipwrestling.com" target="_blank" rel="noopener" class="kf-indie-card">
+          <div class="kf-indie-name">Mega Championship Wrestling</div>
+          <div class="kf-indie-loc">Ohio</div>
+          <div class="kf-indie-next">See Schedule →</div>
+        </a>
       </div>
     </div>
     <div class="kf-region">
       <div class="kf-region-label">Northeast · NY / NJ / New England</div>
       <div class="kf-indie-grid">
-        <div class="kf-indie-card"><div class="kf-indie-name">Game Changer Wrestling</div><div class="kf-indie-loc">Various, NJ</div><div class="kf-indie-next">Next: May 2</div></div>
-        <div class="kf-indie-card"><div class="kf-indie-name">Beyond Wrestling</div><div class="kf-indie-loc">Providence, RI</div><div class="kf-indie-next">Next: May 9</div></div>
-        <div class="kf-indie-card"><div class="kf-indie-name">MLW</div><div class="kf-indie-loc">Various</div><div class="kf-indie-next">Next: May 3</div></div>
+        <a href="https://www.gcwrestling.net/events" target="_blank" rel="noopener" class="kf-indie-card">
+          <div class="kf-indie-name">Game Changer Wrestling</div>
+          <div class="kf-indie-loc">Various, NJ</div>
+          <div class="kf-indie-next">See Schedule →</div>
+        </a>
+        <a href="https://www.beyondwrestling.com/events" target="_blank" rel="noopener" class="kf-indie-card">
+          <div class="kf-indie-name">Beyond Wrestling</div>
+          <div class="kf-indie-loc">Providence, RI</div>
+          <div class="kf-indie-next">See Schedule →</div>
+        </a>
+        <a href="https://www.mlw.com/events" target="_blank" rel="noopener" class="kf-indie-card">
+          <div class="kf-indie-name">MLW</div>
+          <div class="kf-indie-loc">Various</div>
+          <div class="kf-indie-next">See Schedule →</div>
+        </a>
         <div class="kf-indie-submit"><a href="submit.html">Submit Your<br>Promotion →</a></div>
       </div>
     </div>
     <div class="kf-region">
       <div class="kf-region-label">Southeast · Mid-Atlantic</div>
       <div class="kf-indie-grid">
-        <div class="kf-indie-card"><div class="kf-indie-name">Ohio Valley Wrestling</div><div class="kf-indie-loc">Louisville, KY</div><div class="kf-indie-next">Next: May 3</div></div>
-        <div class="kf-indie-card"><div class="kf-indie-name">Mid Atlantic Wrestling Alliance</div><div class="kf-indie-loc">Mid-Atlantic</div><div class="kf-indie-next">Next: TBA</div></div>
+        <a href="https://www.ovwrestling.com/events" target="_blank" rel="noopener" class="kf-indie-card">
+          <div class="kf-indie-name">Ohio Valley Wrestling</div>
+          <div class="kf-indie-loc">Louisville, KY</div>
+          <div class="kf-indie-next">See Schedule →</div>
+        </a>
+        <a href="https://www.midatlanticwrestlingalliance.com" target="_blank" rel="noopener" class="kf-indie-card">
+          <div class="kf-indie-name">Mid Atlantic Wrestling Alliance</div>
+          <div class="kf-indie-loc">Mid-Atlantic</div>
+          <div class="kf-indie-next">See Schedule →</div>
+        </a>
         <div class="kf-indie-submit"><a href="submit.html">Submit Your<br>Promotion →</a></div>
         <div class="kf-indie-submit"><a href="submit.html">Submit Your<br>Promotion →</a></div>
       </div>
@@ -858,8 +871,7 @@ body {
         <div class="kf-video-info"><div class="kf-video-title">AEW Dynamite Best Moments</div><div class="kf-video-meta">AEW · Latest</div></div>
       </div>
       <div class="kf-video-card">
-        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=indie+wrestling+2026','_blank')"><div class="kf-play"></div></div>
-        <div class="kf-video-info"><div class="kf-video-title">Best Indie Matches This Month</div><div class="kf-video-meta">Indies · Latest</div></div>
+        <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=indie+wrestling+2026','_blank')"><div class="kf-video-info"><div class="kf-video-title">Best Indie Matches This Month</div><div class="kf-video-meta">Indies · Latest</div></div>
       </div>
       <div class="kf-video-card">
         <div class="kf-video-thumb" onclick="window.open('https://www.youtube.com/results?search_query=NJPW+2026','_blank')"><div class="kf-play"></div></div>
